@@ -278,19 +278,19 @@
           <div class="contact-card">
             <div class="contact-icon">📧</div>
             <h3>Email Us</h3>
-            <p>aavishkarmanthan@example.com</p>
+            <p><a href="mailto:iuceeewb.mce@gmail.com">iuceeewb.mce@gmail.com</a></p>
           </div>
           
           <div class="contact-card">
             <div class="contact-icon">📱</div>
             <h3>Call Us</h3>
-            <p>+91 98765 43210</p>
+            <p>-----------</p>
           </div>
           
           <div class="contact-card">
             <div class="contact-icon">📍</div>
             <h3>Visit Us</h3>
-            <p>Innovation Center, Tech Campus<br>Bangalore, India</p>
+            <p><a href="https://www.google.com/maps/place/Malnad+College+of+Engineering/@13.0240103,76.098911,17z/data=!4m6!3m5!1s0x3ba5483386aa3ffd:0x1ffd88ffad2a1ca6!8m2!3d13.0240103!4d76.1014859!16zL20vMDdwMjZ3?entry=ttu&g_ep=EgoyMDI1MDcyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank">MALNAD COLLEGE OF ENGINEERING<br>HASSAN ,KARNATAKA</a></p>
           </div>
         </div>
         
@@ -333,8 +333,8 @@
       const fadeElements = document.querySelectorAll('.fade-in-element');
       fadeElements.forEach(el => observer.observe(el));
       
-      const fadeSection = document.querySelector('.fade-in-section');
-      if (fadeSection) observer.observe(fadeSection);
+      const fadeSections = document.querySelectorAll('.fade-in-section');
+      fadeSections.forEach(section => observer.observe(section));
     });
 
     // Themed Loader Logic - Matching Website Style

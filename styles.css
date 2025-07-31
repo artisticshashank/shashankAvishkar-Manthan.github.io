@@ -863,6 +863,19 @@ body {
     line-height: 1.5;
 }
 
+.contact-card p a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.contact-card p a:hover {
+    color: #4ecdc4;
+    border-bottom: 1px solid #4ecdc4;
+    text-shadow: 0 0 8px rgba(78, 205, 196, 0.5);
+}
+
 .contact-form {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(20px);
