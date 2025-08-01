@@ -698,6 +698,223 @@ body {
   font-family: 'Inclusive Sans', sans-serif;
 }
 
+/* Events Section */
+.events-section {
+    position: relative;
+    padding: 80px 20px;
+    min-height: 100vh;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 107, 107, 0.1) 0%, rgba(69, 183, 209, 0.1) 35%, rgba(150, 206, 180, 0.1) 70%, rgba(254, 202, 87, 0.1) 100%);
+    z-index: 2;
+}
+
+.events-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.events-title {
+    font-family: 'Inknut Antiqua', serif;
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #ff6b6b, #45b7d1, #96ceb4, #feca57);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+.events-subtitle {
+    font-family: 'Inclusive Sans', sans-serif;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 4rem;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.event-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.event-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.8rem;
+    border-radius: 12px;
+    min-width: 60px;
+}
+
+.event-day {
+    font-family: 'Inknut Antiqua', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    line-height: 1;
+}
+
+.event-month {
+    font-family: 'Inclusive Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.event-status {
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-family: 'Inclusive Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-upcoming {
+    background: rgba(78, 205, 196, 0.3);
+    color: #4ecdc4;
+    border: 1px solid rgba(78, 205, 196, 0.5);
+}
+
+.status-workshop {
+    background: rgba(69, 183, 209, 0.3);
+    color: #45b7d1;
+    border: 1px solid rgba(69, 183, 209, 0.5);
+}
+
+.status-mentorship {
+    background: rgba(150, 206, 180, 0.3);
+    color: #96ceb4;
+    border: 1px solid rgba(150, 206, 180, 0.5);
+}
+
+.status-deadline {
+    background: rgba(255, 107, 107, 0.3);
+    color: #ff6b6b;
+    border: 1px solid rgba(255, 107, 107, 0.5);
+}
+
+.status-competition {
+    background: rgba(254, 202, 87, 0.3);
+    color: #feca57;
+    border: 1px solid rgba(254, 202, 87, 0.5);
+}
+
+.status-celebration {
+    background: rgba(155, 89, 182, 0.3);
+    color: #9b59b6;
+    border: 1px solid rgba(155, 89, 182, 0.5);
+}
+
+.event-content {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.event-title {
+    font-family: 'Inknut Antiqua', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.event-time,
+.event-location {
+    font-family: 'Inclusive Sans', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.event-description {
+    font-family: 'Inclusive Sans', sans-serif;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin: 1rem 0 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+.event-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.event-tag {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-family: 'Inclusive Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.event-tag:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+/* Responsive Design for Events */
+@media (max-width: 768px) {
+    .events-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .events-title {
+        font-size: 2rem;
+    }
+    
+    .event-header {
+        padding: 1rem;
+    }
+    
+    .event-content {
+        padding: 1rem;
+    }
+}
+
 /* About Section */
 .about-section {
     position: relative;
