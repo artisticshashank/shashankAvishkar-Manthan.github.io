@@ -32,7 +32,7 @@
       <!-- Logo and Title matching main page -->
       <div class="loader-title-container">
         <div class="loader-logo-title-wrapper">
-          <img src="assets\imgs\logo\logo.png" alt="LOGO" class="loader-logo-img">
+          <img src="assets/imgs/logo/logo.png" alt="LOGO" class="loader-logo-img">
           <h1 class="loader-main-title">VISHKAR</h1>
         </div>
         <div class="loader-version-background">2K25</div>
@@ -78,7 +78,21 @@
 
   <!-- Navbar -->
   <nav class="navbar">
-    <ul class="navbar-links">
+    <!-- Hamburger Menu Button (Mobile Only) -->
+    <button class="hamburger-menu" id="hamburgerBtn" aria-label="Toggle navigation menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    
+    <!-- Mobile Logo/Brand (Mobile Only) -->
+    <div class="mobile-logo">
+      <img src="assets/imgs/logo/logo.png" alt="Aavishkar Manthan Logo" class="mobile-logo-img">
+      <span class="mobile-logo-text">M2K25</span>
+    </div>
+    
+    <!-- Desktop Navigation Links -->
+    <ul class="navbar-links desktop-nav">
       <li><a href="#countdown-screen">Home</a></li>
       <li><a href="#timeline-screen">Journey</a></li>
       <li><a href="#events-section">Events</a></li>
@@ -86,6 +100,22 @@
       <li><a href="#contact-section">Contact</a></li>
       <li><a href="https://forms.gle/1dauH72NzjN5fTW37" target="_blank">Register</a></li>
     </ul>
+    
+    <!-- Mobile Register Button (Always Visible) -->
+    <a href="https://forms.gle/1dauH72NzjN5fTW37" target="_blank" class="mobile-register-btn">Register</a>
+    
+    <!-- Mobile Overlay Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+      <div class="mobile-menu-content">
+        <ul class="mobile-nav-links">
+          <li><a href="#countdown-screen" class="mobile-nav-link">Home</a></li>
+          <li><a href="#timeline-screen" class="mobile-nav-link">Journey</a></li>
+          <li><a href="#events-section" class="mobile-nav-link">Events</a></li>
+          <li><a href="#about-section" class="mobile-nav-link">About</a></li>
+          <li><a href="#contact-section" class="mobile-nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
   </nav>
 
   <!-- Full Screen Countdown Section -->
@@ -103,9 +133,9 @@
     </div>
     
     <div class="countdown-container">
-      <div class="main-title-container" style="transform: scale(1.3); margin: 2rem 0;">
+      <div class="main-title-container" style="margin: 2rem 0;">
         <div class="logo-title-wrapper" id="header-logo-main" style="display: flex; align-items: baseline;">
-          <img id="logo" src="assets\imgs\logo\logo.png" alt="LOGO" style="width: 90px; height: 90px; margin-right: 0.1rem; margin-bottom: -1.8rem;">
+          <img id="logo" src="assets/imgs/logo/logo.png" alt="LOGO" style="width: 90px; height: 90px; margin-right: 0.1rem; margin-bottom: -1.8rem;" fetchpriority="high">
           <h1 class="main-title" style="margin-bottom: 0; font-size: 4.5rem;">AVISHKAR</h1>
         </div>
         <div class="version-background">2K25</div>
@@ -120,7 +150,7 @@
       <p class="countdown-subtitle">The Innovation Challenge Awaits</p>
 
       <!-- Countdown Timer -->
-      <section id="countdown-section" style="display: flex; justify-content: center; transform: scale(1.5); margin: 1rem 0;">
+      <section id="countdown-section" style="display: flex; justify-content: center; margin: 1rem 0;">
         <a href="https://logwork.com/countdown-dmh5" class="countdown-timer" data-timezone="Asia/Kolkata" data-textcolor="#fcfcfc" data-date="2025-09-10 23:26" data-background="#6e69db" data-digitscolor="#ffffff" data-unitscolor="#ffffff"><b>LIVE in...</b></a>
       </section>
 
@@ -147,10 +177,22 @@
       <div class="about-content">
         <div class="about-card fade-in-element">
           <div class="card-icon">
-            <img src="assets\imgs\logo\IUCEE EWB MCE LOGO\iucee mce logo.png" alt="IUCEE EWB MCE Logo" class="card-icon-img">
+            <img src="assets/imgs/logo/IUCEE EWB MCE LOGO/iucee mce logo.png" alt="IUCEE EWB MCE Logo" class="card-icon-img" loading="lazy" decoding="async">
           </div>
           <h3>IUCEE EWB MCE</h3>
-          <p>A student organization in partnership with IUCEE, running with the primary agenda of Conduct and implementation valued student - oriented workshops ,Establishs a strong collaboration with industries, providing sustainable support to the student community.</p>
+          <p>The IUCEE EWB MCE Student Chapter is a dynamic, student-run
+ organisation that unites driven individuals to solve practical problems
+ via service and innovation. In collaboration with Engineers Without
+ Borders (EWB), our chapter equips students with real-world skills
+ and a humanitarian perspective by going beyond the conventional
+ curriculum. One sustainable solution at a time, we're improving the
+ world outside of the classroom.
+ Students can develop into socially conscious engineers through a
+ variety of activities, such as interactive workshops on cutting-edge
+ technologies, community-based projects, and national events like
+ AAVISHKAR MANTHAN. Our goal is to establish an environment
+ where students can work together, be creative, and actually change
+ society.</p>
           <div class="card-action">
             <a href="https://sites.google.com/view/iucee-ewb-mce/home" target="_blank" class="know-more-btn">
               <i class="fas fa-external-link-alt"></i>
@@ -161,10 +203,17 @@
         
         <div class="about-card fade-in-element">
           <div class="card-icon">
-            <img src="assets\imgs\logo\logo.png" alt="Aavishkar Manthan Logo" class="card-icon-img">
+            <img src="assets/imgs/logo/logo.png" alt="Aavishkar Manthan Logo" class="card-icon-img" loading="lazy" decoding="async">
           </div>
           <h3>Aavishkar Manthan</h3>
-          <p>AAVISHKAR MANTHAN is a national-level event organized by the IUCEE EWB MCE Students chapter at Malnad College of Engineering, Hassan. It is an excellent platform for students to come together and share their knowledge. Students of various institutions across the nation participated in this chain of competitions that puts their brain into a thinking state. It provided a platform to establish themselves as unique individuals.</p>
+          <p>Aavishkar Manthan is a prestigious national-level inspire innovation
+ and awareness among students through the lens of the United
+ Nations Sustainable Development Goals (SDGs). With a focus on
+ real-world impact, this event invites participants from across the
+ country to explore ideas that contribute to building a more
+ sustainable and equitable future.
+ The three flagship events of Aavishkar Manthan are Ideathon,
+ Elocution and Walkathon.</p>
         </div>
       </div>
     </div>
@@ -175,126 +224,484 @@
   <!-- Events Section -->
   <section id="events-section" class="events-section fade-in-section">
     <div class="events-container">
-      <h2 class="events-title fade-in-element">Upcoming Events</h2>
+      <h2 class="events-title fade-in-element">Our Events</h2>
+      
       <p class="events-subtitle fade-in-element">Join us for exciting workshops, sessions, and competitions</p>
       
-      <div class="events-grid">
-        <div class="event-card fade-in-element">
-          <div class="event-header">
-            <div class="event-date">
-              <span class="event-day">15</span>
-              <span class="event-month">JAN</span>
+      <!-- Competitive Events Subsection -->
+      <div class="events-subsection">
+        <h3 class="events-subheader fade-in-element">Competitive Events</h3>
+        <div class="decorative-line">
+        <div class="line-accent"></div>
+      </div>
+        <div class="events-grid competitive-events">
+          <div class="event-card-container fade-in-element" data-event="ideathon">
+            <!-- Main Event Card -->
+            <div class="event-card main-card">
+              <div class="event-logo-container">
+                <img src="assets/imgs/event-logos/ideathon.png" alt="Ideathon Logo" class="event-logo" onerror="this.src='assets/imgs/logo/logo.png'">
+              </div>
+              <div class="event-date-display">
+                <span class="event-day">8th</span>
+                <span class="event-month">SEP</span>
+              </div>
+              <h3 class="event-title-main">Ideathon</h3>
+              <div class="event-status status-competition">Competition</div>
+              <a href="https://forms.gle/1dauH72NzjN5fTW37" target="_blank" class="register-btn">
+                <i class="fas fa-user-plus"></i>
+                Register Now
+              </a>
             </div>
-            <div class="event-status status-upcoming">Upcoming</div>
+            
+            <!-- Detail Event Card (Hidden by default) -->
+            <div class="event-card detail-card">
+              <div class="detail-header">
+                <div class="event-logo-small">
+                  <img src="assets/imgs/event-logos/ideathon.png" alt="Ideathon Logo" onerror="this.src='assets/imgs/logo/logo.png'">
+                </div>
+                <div class="event-info">
+                  <h3 class="event-title">Ideathon</h3>
+                  <div class="event-status status-competition">Competition</div>
+                </div>
+                <button class="close-detail-btn">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <div class="detail-content">
+                <div class="event-date-time">
+                  <div class="date-section">
+                    <i class="fas fa-calendar"></i>
+                    <span>8th September 2024</span>
+                  </div>
+                  <div class="time-section">
+                    <i class="fas fa-clock"></i>
+                    <span>9:00 AM - 6:00 PM</span>
+                  </div>
+                  <div class="location-section">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>MCE Auditorium</span>
+                  </div>
+                </div>
+                <div class="event-description">
+                  <p>Present your innovative ideas and compete for the top prizes in this flagship competition. This is your chance to showcase groundbreaking solutions to real-world problems.</p>
+                  <h4>Event Highlights:</h4>
+                  <ul>
+                    <li>Innovation showcase platform</li>
+                    <li>Expert judging panel</li>
+                    <li>Cash prizes and recognition</li>
+                    <li>Networking opportunities</li>
+                  </ul>
+                </div>
+                <div class="event-tags">
+                  <span class="event-tag">Competition</span>
+                  <span class="event-tag">Innovation</span>
+                  <span class="event-tag">Technology</span>
+                </div>
+                <div class="detail-actions">
+                  <a href="https://forms.gle/1dauH72NzjN5fTW37" target="_blank" class="register-btn-detail">
+                    <i class="fas fa-user-plus"></i>
+                    Register for Ideathon
+                  </a>
+                  <button class="info-btn">
+                    <i class="fas fa-info-circle"></i>
+                    More Info
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="event-content">
-            <h3 class="event-title">Registration Launch</h3>
-            <p class="event-time">🕐 10:00 AM - 6:00 PM</p>
-            <p class="event-location">📍 Online Platform</p>
-            <p class="event-description">Official launch of registration for Aavishkar Manthan 3.0. Don't miss out on early bird benefits!</p>
-            <div class="event-tags">
-              <span class="event-tag">Registration</span>
-              <span class="event-tag">Launch</span>
+
+          <div class="event-card-container fade-in-element" data-event="elocution">
+            <!-- Main Event Card -->
+            <div class="event-card main-card">
+              <div class="event-logo-container">
+                <img src="assets/imgs/event-logos/elocution.png" alt="Elocution Logo" class="event-logo" onerror="this.src='assets/imgs/logo/logo.png'">
+              </div>
+              <div class="event-date-display">
+                <span class="event-day">8th</span>
+                <span class="event-month">SEP</span>
+              </div>
+              <h3 class="event-title-main">Elocution</h3>
+              <div class="event-status status-competition">Competition</div>
+              <a href="https://forms.gle/1dauH72NzjN5fTW37" target="_blank" class="register-btn">
+                <i class="fas fa-user-plus"></i>
+                Register Now
+              </a>
+            </div>
+            
+            <!-- Detail Event Card (Hidden by default) -->
+            <div class="event-card detail-card">
+              <div class="detail-header">
+                <div class="event-logo-small">
+                  <img src="assets/imgs/event-logos/elocution.png" alt="Elocution Logo" onerror="this.src='assets/imgs/logo/logo.png'">
+                </div>
+                <div class="event-info">
+                  <h3 class="event-title">Elocution</h3>
+                  <div class="event-status status-competition">Competition</div>
+                </div>
+                <button class="close-detail-btn">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <div class="detail-content">
+                <div class="event-date-time">
+                  <div class="date-section">
+                    <i class="fas fa-calendar"></i>
+                    <span>8th September 2024</span>
+                  </div>
+                  <div class="time-section">
+                    <i class="fas fa-clock"></i>
+                    <span>2:00 PM - 5:00 PM</span>
+                  </div>
+                  <div class="location-section">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>MCE Main Hall</span>
+                  </div>
+                </div>
+                <div class="event-description">
+                  <p>Showcase your oratory skills and present compelling arguments on sustainability topics. Express your ideas with confidence and eloquence.</p>
+                  <h4>Event Highlights:</h4>
+                  <ul>
+                    <li>Public speaking platform</li>
+                    <li>Sustainability focused topics</li>
+                    <li>Professional development</li>
+                    <li>Communication skills enhancement</li>
+                  </ul>
+                </div>
+                <div class="event-tags">
+                  <span class="event-tag">Speaking</span>
+                  <span class="event-tag">Competition</span>
+                  <span class="event-tag">Communication</span>
+                </div>
+                <div class="detail-actions">
+                  <a href="https://forms.gle/1dauH72NzjN5fTW37" target="_blank" class="register-btn-detail">
+                    <i class="fas fa-user-plus"></i>
+                    Register for Elocution
+                  </a>
+                  <button class="info-btn">
+                    <i class="fas fa-info-circle"></i>
+                    More Info
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="event-card fade-in-element">
-          <div class="event-header">
-            <div class="event-date">
-              <span class="event-day">01</span>
-              <span class="event-month">FEB</span>
-            </div>
-            <div class="event-status status-workshop">Workshop</div>
-          </div>
-          <div class="event-content">
-            <h3 class="event-title">Innovation Workshop</h3>
-            <p class="event-time">🕐 9:00 AM - 5:00 PM</p>
-            <p class="event-location">📍 MCE Campus</p>
-            <p class="event-description">Hands-on workshop on innovation methodologies, design thinking, and problem-solving techniques.</p>
-            <div class="event-tags">
-              <span class="event-tag">Workshop</span>
-              <span class="event-tag">Innovation</span>
-            </div>
-          </div>
-        </div>
+      <!-- Gradient Separator Line -->
+      <div class="events-separator">
+        <div class="separator-line"></div>
+      </div>
 
-        <div class="event-card fade-in-element">
-          <div class="event-header">
-            <div class="event-date">
-              <span class="event-day">10</span>
-              <span class="event-month">FEB</span>
+      <!-- Engagement Events Subsection -->
+      <div class="events-subsection">
+        <h3 class="events-subheader fade-in-element">Engagement Events</h3>
+        <div class="decorative-line">
+        <div class="line-accent"></div>
+      </div>
+        <div class="events-grid engagement-events">
+          <div class="event-card-container fade-in-element" data-event="workshop">
+            <!-- Main Event Card -->
+            <div class="event-card main-card">
+              <div class="event-logo-container">
+                <img src="assets/imgs/event-logos/workshop.png" alt="Workshop Logo" class="event-logo" onerror="this.src='assets/imgs/logo/logo.png'">
+              </div>
+              <div class="event-date-display">
+                <span class="event-day">9th</span>
+                <span class="event-month">SEP</span>
+              </div>
+              <h3 class="event-title-main">EXPERT TALK</h3>
+              <div class="event-status status-workshop">Workshop</div>
+              <button class="register-btn">
+                <i class="fas fa-user-plus"></i>
+                Register Now
+              </button>
             </div>
-            <div class="event-status status-mentorship">Mentorship</div>
-          </div>
-          <div class="event-content">
-            <h3 class="event-title">Mentor Connect Session</h3>
-            <p class="event-time">🕐 2:00 PM - 4:00 PM</p>
-            <p class="event-location">📍 Virtual & Campus</p>
-            <p class="event-description">One-on-one mentorship sessions with industry experts and successful entrepreneurs.</p>
-            <div class="event-tags">
-              <span class="event-tag">Mentorship</span>
-              <span class="event-tag">Networking</span>
+            
+            <!-- Detail Event Card -->
+            <div class="event-card detail-card">
+              <div class="detail-header">
+                <div class="event-logo-small">
+                  <img src="assets/imgs/event-logos/workshop.png" alt="Workshop Logo" onerror="this.src='assets/imgs/logo/logo.png'">
+                </div>
+                <div class="event-info">
+                  <h3 class="event-title">EXPERT TALK</h3>
+                  <div class="event-status status-workshop">Workshop</div>
+                </div>
+                <button class="close-detail-btn">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <div class="detail-content">
+                <div class="event-date-time">
+                  <div class="date-section">
+                    <i class="fas fa-calendar"></i>
+                    <span>9th September 2024</span>
+                  </div>
+                  <div class="time-section">
+                    <i class="fas fa-clock"></i>
+                    <span>9:00 AM - 5:00 PM</span>
+                  </div>
+                  <div class="location-section">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>MCE Campus</span>
+                  </div>
+                </div>
+                <div class="event-description">
+                  <p>Hands-on workshop on innovation methodologies, design thinking, and problem-solving techniques. Learn from industry experts and enhance your innovation skills.</p>
+                  <h4>Workshop Modules:</h4>
+                  <ul>
+                    <li>Design thinking fundamentals</li>
+                    <li>Problem-solving frameworks</li>
+                    <li>Innovation methodologies</li>
+                    <li>Hands-on project work</li>
+                  </ul>
+                </div>
+                <div class="event-tags">
+                  <span class="event-tag">Workshop</span>
+                  <span class="event-tag">Learning</span>
+                  <span class="event-tag">Innovation</span>
+                </div>
+                <div class="detail-actions">
+                  <button class="register-btn-detail">
+                    <i class="fas fa-user-plus"></i>
+                    Register for Workshop
+                  </button>
+                  <button class="info-btn">
+                    <i class="fas fa-info-circle"></i>
+                    More Info
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="event-card fade-in-element">
-          <div class="event-header">
-            <div class="event-date">
-              <span class="event-day">01</span>
-              <span class="event-month">MAR</span>
+          <div class="event-card-container fade-in-element" data-event="mentorship">
+            <!-- Main Event Card -->
+            <div class="event-card main-card">
+              <div class="event-logo-container">
+                <img src="assets/imgs/event-logos/mentorship.png" alt="Mentorship Logo" class="event-logo" onerror="this.src='assets/imgs/logo/logo.png'">
+              </div>
+              <div class="event-date-display">
+                <span class="event-day">12th</span>
+                <span class="event-month">FEB</span>
+              </div>
+              <h3 class="event-title-main">Mentor Connect</h3>
+              <div class="event-status status-mentorship">Mentorship</div>
+              <button class="register-btn">
+                <i class="fas fa-user-plus"></i>
+                Register Now
+              </button>
             </div>
-            <div class="event-status status-deadline">Deadline</div>
-          </div>
-          <div class="event-content">
-            <h3 class="event-title">Project Submission</h3>
-            <p class="event-time">🕐 11:59 PM</p>
-            <p class="event-location">📍 Online Portal</p>
-            <p class="event-description">Final deadline for project submissions. Make sure all documentation is complete!</p>
-            <div class="event-tags">
-              <span class="event-tag">Deadline</span>
-              <span class="event-tag">Submission</span>
+            
+            <!-- Detail Event Card -->
+            <div class="event-card detail-card">
+              <div class="detail-header">
+                <div class="event-logo-small">
+                  <img src="assets/imgs/event-logos/mentorship.png" alt="Mentorship Logo" onerror="this.src='assets/imgs/logo/logo.png'">
+                </div>
+                <div class="event-info">
+                  <h3 class="event-title">Mentor Connect Session</h3>
+                  <div class="event-status status-mentorship">Mentorship</div>
+                </div>
+                <button class="close-detail-btn">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <div class="detail-content">
+                <div class="event-date-time">
+                  <div class="date-section">
+                    <i class="fas fa-calendar"></i>
+                    <span>12th February 2024</span>
+                  </div>
+                  <div class="time-section">
+                    <i class="fas fa-clock"></i>
+                    <span>2:00 PM - 4:00 PM</span>
+                  </div>
+                  <div class="location-section">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Virtual & Campus</span>
+                  </div>
+                </div>
+                <div class="event-description">
+                  <p>One-on-one mentorship sessions with industry experts and successful entrepreneurs. Get personalized guidance for your innovation journey.</p>
+                  <h4>Mentorship Benefits:</h4>
+                  <ul>
+                    <li>Industry expert guidance</li>
+                    <li>Career development insights</li>
+                    <li>Networking opportunities</li>
+                    <li>Personalized feedback</li>
+                  </ul>
+                </div>
+                <div class="event-tags">
+                  <span class="event-tag">Mentorship</span>
+                  <span class="event-tag">Networking</span>
+                  <span class="event-tag">Career</span>
+                </div>
+                <div class="detail-actions">
+                  <button class="register-btn-detail">
+                    <i class="fas fa-user-plus"></i>
+                    Book Mentorship
+                  </button>
+                  <button class="info-btn">
+                    <i class="fas fa-info-circle"></i>
+                    More Info
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="event-card fade-in-element">
-          <div class="event-header">
-            <div class="event-date">
-              <span class="event-day">15</span>
-              <span class="event-month">MAR</span>
+          <div class="event-card-container fade-in-element" data-event="walkathon">
+            <!-- Main Event Card -->
+            <div class="event-card main-card">
+              <div class="event-logo-container">
+                <img src="assets/imgs/event-logos/walkathon.png" alt="Walkathon Logo" class="event-logo" onerror="this.src='assets/imgs/logo/logo.png'">
+              </div>
+              <div class="event-date-display">
+                <span class="event-day">14th</span>
+                <span class="event-month">MAR</span>
+              </div>
+              <h3 class="event-title-main">Walkathon</h3>
+              <div class="event-status status-upcoming">Community</div>
+              <button class="register-btn">
+                <i class="fas fa-user-plus"></i>
+                Register Now
+              </button>
             </div>
-            <div class="event-status status-competition">Competition</div>
-          </div>
-          <div class="event-content">
-            <h3 class="event-title">Final Presentations</h3>
-            <p class="event-time">🕐 9:00 AM - 6:00 PM</p>
-            <p class="event-location">📍 MCE Auditorium</p>
-            <p class="event-description">Present your innovations to a panel of expert judges and compete for the top prizes.</p>
-            <div class="event-tags">
-              <span class="event-tag">Competition</span>
-              <span class="event-tag">Presentation</span>
+            
+            <!-- Detail Event Card -->
+            <div class="event-card detail-card">
+              <div class="detail-header">
+                <div class="event-logo-small">
+                  <img src="assets/imgs/event-logos/walkathon.png" alt="Walkathon Logo" onerror="this.src='assets/imgs/logo/logo.png'">
+                </div>
+                <div class="event-info">
+                  <h3 class="event-title">Walkathon</h3>
+                  <div class="event-status status-upcoming">Community</div>
+                </div>
+                <button class="close-detail-btn">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <div class="detail-content">
+                <div class="event-date-time">
+                  <div class="date-section">
+                    <i class="fas fa-calendar"></i>
+                    <span>14th March 2024</span>
+                  </div>
+                  <div class="time-section">
+                    <i class="fas fa-clock"></i>
+                    <span>6:00 AM - 8:00 AM</span>
+                  </div>
+                  <div class="location-section">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>MCE Campus to City Center</span>
+                  </div>
+                </div>
+                <div class="event-description">
+                  <p>Community walkathon to raise awareness about sustainable development goals. Join us for a meaningful walk that promotes health and sustainability.</p>
+                  <h4>Event Features:</h4>
+                  <ul>
+                    <li>Health and wellness promotion</li>
+                    <li>Sustainability awareness</li>
+                    <li>Community building</li>
+                    <li>Environmental consciousness</li>
+                  </ul>
+                </div>
+                <div class="event-tags">
+                  <span class="event-tag">Community</span>
+                  <span class="event-tag">Awareness</span>
+                  <span class="event-tag">Health</span>
+                </div>
+                <div class="detail-actions">
+                  <button class="register-btn-detail">
+                    <i class="fas fa-user-plus"></i>
+                    Join Walkathon
+                  </button>
+                  <button class="info-btn">
+                    <i class="fas fa-info-circle"></i>
+                    More Info
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="event-card fade-in-element">
-          <div class="event-header">
-            <div class="event-date">
-              <span class="event-day">20</span>
-              <span class="event-month">MAR</span>
+          <div class="event-card-container fade-in-element" data-event="bonfire">
+            <!-- Main Event Card -->
+            <div class="event-card main-card">
+              <div class="event-logo-container">
+                <img src="assets/imgs/event-logos/bonfire.png" alt="Bonfire Logo" class="event-logo" onerror="this.src='assets/imgs/logo/logo.png'">
+              </div>
+              <div class="event-date-display">
+                <span class="event-day">17th</span>
+                <span class="event-month">MAR</span>
+              </div>
+              <h3 class="event-title-main">Bonfire</h3>
+              <div class="event-status status-celebration">Celebration</div>
+              <button class="register-btn">
+                <i class="fas fa-user-plus"></i>
+                Register Now
+              </button>
             </div>
-            <div class="event-status status-celebration">Celebration</div>
-          </div>
-          <div class="event-content">
-            <h3 class="event-title">Awards Ceremony</h3>
-            <p class="event-time">🕐 6:00 PM - 8:00 PM</p>
-            <p class="event-location">📍 MCE Main Auditorium</p>
-            <p class="event-description">Grand celebration of innovations with awards ceremony, networking, and recognition of outstanding projects.</p>
-            <div class="event-tags">
-              <span class="event-tag">Awards</span>
-              <span class="event-tag">Celebration</span>
+            
+            <!-- Detail Event Card -->
+            <div class="event-card detail-card">
+              <div class="detail-header">
+                <div class="event-logo-small">
+                  <img src="assets/imgs/event-logos/bonfire.png" alt="Bonfire Logo" onerror="this.src='assets/imgs/logo/logo.png'">
+                </div>
+                <div class="event-info">
+                  <h3 class="event-title">Bonfire</h3>
+                  <div class="event-status status-celebration">Celebration</div>
+                </div>
+                <button class="close-detail-btn">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <div class="detail-content">
+                <div class="event-date-time">
+                  <div class="date-section">
+                    <i class="fas fa-calendar"></i>
+                    <span>17th March 2024</span>
+                  </div>
+                  <div class="time-section">
+                    <i class="fas fa-clock"></i>
+                    <span>6:00 PM - 8:00 PM</span>
+                  </div>
+                  <div class="location-section">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>MCE Main Auditorium</span>
+                  </div>
+                </div>
+                <div class="event-description">
+                  <p>A warm and cozy bonfire evening celebrating innovation and community spirit. Join us for an unforgettable night of stories, networking, and celebration under the stars.</p>
+                  <h4>Event Highlights:</h4>
+                  <ul>
+                    <li>Community bonfire gathering</li>
+                    <li>Innovation storytelling session</li>
+                    <li>Networking and refreshments</li>
+                    <li>Cultural performances</li>
+                  </ul>
+                </div>
+                <div class="event-tags">
+                  <span class="event-tag">Bonfire</span>
+                  <span class="event-tag">Community</span>
+                  <span class="event-tag">Celebration</span>
+                </div>
+                <div class="detail-actions">
+                  <button class="register-btn-detail">
+                    <i class="fas fa-user-plus"></i>
+                    Join Bonfire
+                  </button>
+                  <button class="info-btn">
+                    <i class="fas fa-info-circle"></i>
+                    More Info
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -591,6 +998,185 @@
           const sparkleChars = ['✦', '✧', '⋆', '✨', '💫', '🌟'];
           sparkle.textContent = sparkleChars[Math.floor(Math.random() * sparkleChars.length)];
         });
+      });
+    });
+
+    // Advanced Event Card System - Two Card Interaction
+    document.addEventListener('DOMContentLoaded', () => {
+      const eventContainers = document.querySelectorAll('.event-card-container');
+      
+      eventContainers.forEach(container => {
+        const mainCard = container.querySelector('.main-card');
+        const detailCard = container.querySelector('.detail-card');
+        const closeBtn = container.querySelector('.close-detail-btn');
+        
+        // Show detail card on main card click
+        mainCard.addEventListener('click', (e) => {
+          e.stopPropagation();
+          
+          // Close any other open detail cards
+          eventContainers.forEach(otherContainer => {
+            if (otherContainer !== container) {
+              const otherDetailCard = otherContainer.querySelector('.detail-card');
+              otherDetailCard.classList.remove('active');
+            }
+          });
+          
+          // Show this detail card
+          detailCard.classList.add('active');
+          
+          // Add scroll lock to body
+          document.body.style.overflow = 'hidden';
+          
+          // Focus on the detail card for accessibility
+          detailCard.focus();
+        });
+        
+        // Close detail card when close button is clicked
+        closeBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          detailCard.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        });
+        
+        // Close detail card when clicking outside
+        detailCard.addEventListener('click', (e) => {
+          if (e.target === detailCard) {
+            detailCard.classList.remove('active');
+            document.body.style.overflow = 'auto';
+          }
+        });
+        
+        // Close detail card with Escape key
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && detailCard.classList.contains('active')) {
+            detailCard.classList.remove('active');
+            document.body.style.overflow = 'auto';
+          }
+        });
+        
+        // Register button functionality
+        const registerBtns = container.querySelectorAll('.register-btn, .register-btn-detail');
+        registerBtns.forEach(btn => {
+          // Only add click handlers for button elements (not anchor tags)
+          if (btn.tagName === 'BUTTON') {
+            btn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              const eventName = container.dataset.event;
+              
+              // Add registration logic for other events here
+              console.log(`Registering for ${eventName} event`);
+              
+              // For events other than ideathon and elocution
+              if (eventName !== 'ideathon' && eventName !== 'elocution') {
+                alert(`Registration form for ${eventName.charAt(0).toUpperCase() + eventName.slice(1)} will open soon!`);
+              }
+            });
+          }
+        });
+        
+        // Info button functionality
+        const infoBtns = container.querySelectorAll('.info-btn');
+        infoBtns.forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const eventName = container.dataset.event;
+            
+            // Add info modal logic here
+            console.log(`Showing more info for ${eventName} event`);
+            
+            // You can add actual info modal functionality here
+            alert(`More information about ${eventName.charAt(0).toUpperCase() + eventName.slice(1)} will be available soon!`);
+          });
+        });
+        
+        // Enhanced hover effects
+        mainCard.addEventListener('mouseenter', () => {
+          mainCard.style.transform = 'translateY(-10px) scale(1.02) rotateX(5deg)';
+        });
+        
+        mainCard.addEventListener('mouseleave', () => {
+          mainCard.style.transform = 'translateY(0) scale(1) rotateX(0deg)';
+        });
+        
+        // Card reveal animation on scroll
+        const observeCard = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0) scale(1)';
+            }
+          });
+        }, { threshold: 0.1 });
+        
+        // Initial state for animation
+        container.style.opacity = '0';
+        container.style.transform = 'translateY(50px) scale(0.9)';
+        container.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        
+        observeCard.observe(container);
+      });
+      
+      // Touch device support
+      if ('ontouchstart' in window) {
+        eventContainers.forEach(container => {
+          const mainCard = container.querySelector('.main-card');
+          
+          // Double tap to open on touch devices
+          let lastTap = 0;
+          mainCard.addEventListener('touchend', (e) => {
+            const currentTime = new Date().getTime();
+            const tapLength = currentTime - lastTap;
+            
+            if (tapLength < 500 && tapLength > 0) {
+              e.preventDefault();
+              mainCard.click();
+            }
+            
+            lastTap = currentTime;
+          });
+        });
+      }
+    });
+
+    // Hamburger Menu Functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+      
+      // Toggle mobile menu
+      hamburgerBtn.addEventListener('click', () => {
+        hamburgerBtn.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+      });
+      
+      // Close menu when clicking a link
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          hamburgerBtn.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        });
+      });
+      
+      // Close menu when clicking overlay
+      mobileMenu.addEventListener('click', (e) => {
+        if (e.target === mobileMenu) {
+          hamburgerBtn.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        }
+      });
+      
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          hamburgerBtn.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        }
       });
     });
   </script>
