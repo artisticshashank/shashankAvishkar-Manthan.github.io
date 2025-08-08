@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;500;600;700&family=Inclusive+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.logwork.com/widget/countdown.js"></script>
   <title>AAVISHKAR MANTHAN</title>
@@ -33,7 +34,7 @@
       <div class="loader-title-container">
         <div class="loader-logo-title-wrapper">
           <img src="assets/imgs/logo/logo.png" alt="LOGO" class="loader-logo-img">
-          <h1 class="loader-main-title">VISHKAR</h1>
+          <h1 class="loader-main-title">AVISHKAR</h1>
         </div>
         <div class="loader-version-background">2K25</div>
         <h1 class="loader-main-title loader-manthan">MANTHAN</h1>
@@ -46,18 +47,6 @@
       
       <!-- Loading subtitle -->
       <p class="loader-subtitle">Preparing Your Innovation Journey</p>
-      
-      <!-- Glass morphism progress container -->
-      <div class="loader-progress-container">
-        <div class="progress-wrapper">
-          <div class="progress-bar" id="progressBar"></div>
-          <div class="progress-glow"></div>
-        </div>
-        <div class="progress-info">
-          <span class="progress-percentage" id="progressPercentage">0%</span>
-          <span class="progress-status" id="loadingStatus">Initializing...</span>
-        </div>
-      </div>
       
       <!-- Elegant spinner matching theme -->
       <div class="loader-spinner">
@@ -134,12 +123,12 @@
     
     <div class="countdown-container">
       <div class="main-title-container" style="margin: 2rem 0;">
-        <div class="logo-title-wrapper" id="header-logo-main" style="display: flex; align-items: baseline;">
-          <img id="logo" src="assets/imgs/logo/logo.png" alt="LOGO" style="width: 90px; height: 90px; margin-right: 0.1rem; margin-bottom: -1.8rem;" fetchpriority="high">
-          <h1 class="main-title" style="margin-bottom: 0; font-size: 4.5rem;">AVISHKAR</h1>
+        <div class="logo-title-wrapper" id="header-logo-main">
+          <img id="logo" src="assets/imgs/logo/logo.png" alt="LOGO" fetchpriority="high">
+          <h1 class="main-title">AVISHKAR</h1>
         </div>
         <div class="version-background">2K25</div>
-        <h1 class="main-title" style="font-size: 4rem;">MANTHAN</h1>
+        <h1 class="main-title manthan-title">MANTHAN</h1>
       </div>
       
       <!-- Decorative element -->
@@ -150,14 +139,25 @@
       <p class="countdown-subtitle">The Innovation Challenge Awaits</p>
 
       <!-- Countdown Timer -->
-      <section id="countdown-section" style="display: flex; justify-content: center; margin: 1rem 0;">
+      <section id="countdown-section" style="display: flex; justify-content: center; margin: 3rem 0 4rem 0; width: 100%; max-width: 100vw; box-sizing: border-box; padding: 0 2rem; overflow: visible;">
         <a href="https://logwork.com/countdown-dmh5" class="countdown-timer" data-timezone="Asia/Kolkata" data-textcolor="#fcfcfc" data-date="2025-09-10 23:26" data-background="#6e69db" data-digitscolor="#ffffff" data-unitscolor="#ffffff"><b>LIVE in...</b></a>
       </section>
 
-      <!-- Register Button -->
-      <div class="register-button-container" style="display: flex; justify-content: center; margin: 3rem 0 2rem 0;">
-        <button onclick="window.open('https://forms.gle/1dauH72NzjN5fTW37', '_blank')" class="cta-button" aria-label="Register or learn more" style="width: 160px; height: 50px; font-size: 1rem;">
-          Register Now
+      <!-- Stunning Animated Register Button -->
+      <div class="register-button-container" style="display: flex; justify-content: center; margin: 2rem 0;">
+        <button onclick="window.open('https://forms.gle/1dauH72NzjN5fTW37', '_blank')" class="stunning-register-btn" aria-label="Register for Aavishkar Manthan 2K25">
+          <div class="btn-bg-effects">
+            <div class="btn-glow-ring"></div>
+            <div class="btn-particle btn-particle-1"></div>
+            <div class="btn-particle btn-particle-2"></div>
+            <div class="btn-particle btn-particle-3"></div>
+            <div class="btn-particle btn-particle-4"></div>
+          </div>
+          <span class="btn-text">
+            <i class="fas fa-rocket btn-icon"></i>
+            Register Now
+          </span>
+          <div class="btn-shimmer"></div>
         </button>
       </div>
 
@@ -886,9 +886,6 @@
     // Themed Loader Logic - Matching Website Style
     window.addEventListener('load', () => {
       const loader = document.getElementById('loader');
-      const progressBar = document.getElementById('progressBar');
-      const progressPercentage = document.getElementById('progressPercentage');
-      const loadingStatus = document.getElementById('loadingStatus');
       const typingMessage = document.getElementById('typingMessage');
       
       let progress = 0;
@@ -930,31 +927,12 @@
           const increment = Math.random() * 3 + 1.5;
           progress = Math.min(progress + increment, 100);
           
-          // Update progress bar and percentage
-          progressBar.style.width = `${progress}%`;
-          progressPercentage.textContent = `${Math.floor(progress)}%`;
-          
-          // Update loading status messages
-          const messageProgress = (progress / 100) * (loadingMessages.length - 1);
-          const newMessageIndex = Math.floor(messageProgress);
-          
-          if (newMessageIndex !== currentMessageIndex && newMessageIndex < loadingMessages.length - 1) {
-            currentMessageIndex = newMessageIndex;
-            loadingStatus.style.opacity = '0';
-            setTimeout(() => {
-              loadingStatus.textContent = loadingMessages[currentMessageIndex];
-              loadingStatus.style.opacity = '1';
-            }, 300);
-          }
-          
           // Continue progress if not complete
           if (progress < 100) {
             setTimeout(updateProgress, 120 + Math.random() * 180);
           } else {
             // Final completion sequence
             setTimeout(() => {
-              loadingStatus.textContent = "System Ready!";
-              
               // Type final welcome message
               typeMessage(loadingMessages[loadingMessages.length - 1], () => {
                 setTimeout(() => {
@@ -973,9 +951,6 @@
       
       // Start the loading sequence
       setTimeout(() => {
-        // Initial message
-        loadingStatus.textContent = loadingMessages[0];
-        
         // Start typing effect for welcome
         typeMessage("Entering the Innovation Universe...", () => {
           updateProgress();

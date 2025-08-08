@@ -124,7 +124,7 @@
                 <div class="title-container">
                     <div class="logo-title-wrapper">
                         <img id="logo" src="assets\imgs\logo\logo.png" alt="">
-                        <h1 class="main-title" style="margin-bottom: 0;">VISHKAR</h1>
+                        <h1 class="main-title" style="margin-bottom: 0;">AVISHKAR</h1>
                     </div>
                     <h1 class="main-title">MANTHAN</h1>
                 </div>
@@ -731,6 +731,11 @@
 
 /* Responsive design for dates */
 @media (max-width: 768px) {
+  .tagline-container {
+    margin: 0.5rem 0 1.5rem 0;
+    transform: translateY(-1rem);
+  }
+  
   .date-display {
     flex-direction: column;
     gap: 1rem;
@@ -751,6 +756,29 @@
   
   .tagline {
     font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Extra responsive styles for mobile devices */
+@media (max-width: 480px) {
+  .tagline-container {
+    margin: 0 0 1rem 0;
+    transform: translateY(-1.5rem);
+  }
+  
+  .tagline {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .event-dates {
+    gap: 0.8rem;
+  }
+  
+  .dates-label {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
   }
 }
 </style>

@@ -116,20 +116,28 @@ body {
 /* Logo and title horizontal layout */
 .logo-title-wrapper {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: center;
-    gap: 0;
-    margin-bottom: 1rem;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
     line-height: 1;
+    padding: 1rem;
 }
 
 .logo-title-wrapper #logo {
     margin-bottom: 0;
-    margin-right: 0;
-    height: 8.5rem;
+    margin-right: 0.5rem;
+    height: 12rem;
     width: auto;
     vertical-align: baseline;
-    transform: translateY(0.5rem);
+    transform: translateY(0.8rem);
+    filter: drop-shadow(0 4px 20px rgba(150, 30, 150, 0.4));
+    transition: all 0.3s ease;
+}
+
+.logo-title-wrapper #logo:hover {
+    transform: translateY(0.8rem) scale(1.05);
+    filter: drop-shadow(0 8px 30px rgba(150, 30, 150, 0.6));
 }
 
 .logo-title-wrapper .main-title {
@@ -202,21 +210,32 @@ body {
 
 .home-btn {
     position: fixed;
-    top: 5rem;
-    right: 8rem;
+    top: 2rem;
+    right: 2rem;
     font-size: 2rem;
     color: rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);
     padding: 1rem;
     border-radius: 50%;
     z-index: 50;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
 
   .home-btn:hover {
     color: #ffffff;
-    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   }
 
 .github-handle-btn {
@@ -589,6 +608,17 @@ body { padding-top: var(--nav-h); }
     .map-decoration {
         display: none;
     }
+    
+    /* Logo responsive styles for tablets */
+    #logo {
+        height: 10rem !important;
+        width: auto !important;
+    }
+    
+    .logo-title-wrapper {
+        gap: 0.4rem !important;
+        margin-bottom: 1.2rem !important;
+    }
 }
 
 /* Phone view fixes: Countdown and Journey Map */
@@ -598,7 +628,7 @@ body { padding-top: var(--nav-h); }
   .main-title-container { transform: none !important; }
   .main-title-container .main-title { font-size: clamp(2rem, 8vw, 3rem) !important; }
   #header-logo-main { align-items: center !important; gap: 0.25rem; }
-  #logo { width: 64px !important; height: 64px !important; margin-bottom: -1rem !important; }
+  #logo { width: auto !important; height: 8rem !important; margin-bottom: -1rem !important; }
   #countdown-section { transform: none !important; }
   #countdown-section .countdown-timer { display: inline-block; max-width: 100%; text-align: center; }
   .sparkle-container { opacity: 0.6; }
@@ -606,7 +636,7 @@ body { padding-top: var(--nav-h); }
 
 /* Extra-small phones */
 @media (max-width: 360px) {
-  #logo { width: 56px !important; height: 56px !important; }
+  #logo { width: auto !important; height: 6rem !important; }
   .main-title-container .main-title { font-size: clamp(1.8rem, 9vw, 2.6rem) !important; }
   #countdown-section { transform: scale(0.92); transform-origin: center top; }
 }
@@ -1322,7 +1352,12 @@ nav.navbar ul li:last-child a:hover {
 .full-screen-section { min-height: calc(100vh - 80px) !important; }
 
 /* Ensure logo/title rows don’t overflow */
-.logo-title-wrapper, .loader-logo-title-wrapper { flex-wrap: wrap; gap: var(--space-2); }
+.logo-title-wrapper, .loader-logo-title-wrapper { 
+  flex-wrap: nowrap !important; 
+  gap: 0.3rem !important; 
+  align-items: center !important;
+  justify-content: center !important;
+}
 
 /* Countdown scale fix on small screens (override inline scale) */
 @media (max-width: 600px) {
@@ -1362,6 +1397,15 @@ nav.navbar ul li:last-child a:hover {
     background: linear-gradient(145deg, 
       rgba(93, 93, 245, 0.9) 0%, 
       rgba(148, 0, 211, 0.9) 100%) !important;
+  }
+  
+  /* Home button responsive styles */
+  .home-btn {
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    width: 48px;
+    height: 48px;
   }
 }
 
@@ -1408,6 +1452,15 @@ nav.navbar ul li:last-child a:hover {
 
   .navbar .navbar-links a:hover {
     transform: translateY(-1px) scale(1.01) !important;
+  }
+  
+  /* Home button for small mobile screens */
+  .home-btn {
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.2rem;
+    width: 44px;
+    height: 44px;
   }
 }
 
@@ -1625,17 +1678,19 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
    ADVANCED EVENT CARD SYSTEM - TWO CARD DESIGN
    ======================================== */
 
-/* Event Card Container */
+/* Event Card Container - Increased Height for Large Logos with Overflow Control */
 .event-card-container {
   position: relative;
   width: 100%;
-  height: 500px;
+  max-width: 500px;
+  height: 600px;
   perspective: 1000px;
   cursor: pointer;
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem auto;
+  overflow: hidden;
 }
 
-/* Main Event Card */
+/* Main Event Card - Reduced Padding for Large Logos */
 .main-card {
   position: absolute;
   top: 0;
@@ -1647,7 +1702,7 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
   -webkit-backdrop-filter: blur(25px);
   border: 2px solid rgba(255, 255, 255, 0.25);
   border-radius: 30px;
-  padding: 2.5rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1663,15 +1718,16 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
   position: relative;
 }
 
-/* Enhanced Card Hover Effect */
+/* Professional Card Hover Effect - Subtle and Refined */
 .main-card:hover {
-  transform: translateY(-15px) rotateX(5deg) rotateY(-2deg) scale(1.02);
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(93, 93, 245, 0.6);
+  transform: translateY(-8px) scale(1.015);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(93, 93, 245, 0.5);
   box-shadow: 
-    0 25px 60px rgba(93, 93, 245, 0.4),
-    0 10px 30px rgba(0, 0, 0, 0.3),
-    inset 0 2px 10px rgba(255, 255, 255, 0.1);
+    0 20px 40px rgba(93, 93, 245, 0.25),
+    0 8px 25px rgba(0, 0, 0, 0.2),
+    inset 0 1px 8px rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .main-card::before {
@@ -1748,49 +1804,63 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
   animation-duration: 3s;
 }
 
-/* Event Logo Container - Redesigned for Prominence (No Circular Boundary) */
+/* Event Logo Container - MASSIVE but Contained */
 .event-logo-container {
-  width: 220px;
-  height: 220px;
+  width: min(380px, 90%);
+  height: min(380px, 90%);
+  max-width: 400px;
+  max-height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
   overflow: visible;
+  transform: scale(1.08);
+  filter: drop-shadow(0 20px 40px rgba(93, 93, 245, 0.5));
 }
 
 .event-logo-container:hover {
-  transform: scale(1.15) translateY(-10px);
-  filter: drop-shadow(0 15px 30px rgba(93, 93, 245, 0.4));
+  transform: scale(1.06) translateY(-4px);
+  filter: drop-shadow(0 15px 35px rgba(93, 93, 245, 0.4));
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .event-logo-container:hover .event-logo {
-  filter: brightness(1.5) contrast(1.4) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6));
-  transform: scale(1.1) rotateY(5deg);
+  filter: brightness(1.3) contrast(1.2) drop-shadow(0 12px 25px rgba(0, 0, 0, 0.6));
+  transform: scale(1.03);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .event-logo {
-  width: 200px;
-  height: 200px;
+  width: min(350px, 85%);
+  height: min(350px, 85%);
+  max-width: 380px;
+  max-height: 380px;
   object-fit: contain;
-  filter: brightness(1.2) contrast(1.1) drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
+  filter: brightness(1.4) contrast(1.3) drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7));
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   z-index: 10;
+  transform: scale(1.05);
 }
 
-/* Ideathon Logo - Make it bigger */
+/* Ideathon Logo - Make it SUPER MASSIVE but contained */
 .event-logo[src*="ideathon.png"] {
-  width: 240px;
-  height: 240px;
+  width: min(420px, 90%);
+  height: min(420px, 90%);
+  max-width: 450px;
+  max-height: 450px;
   transform: scale(1.1);
 }
 
-/* Ideathon Logo Container - Make it bigger to accommodate larger logo */
+/* Ideathon Logo Container - Make it bigger but contained */
 .event-card-container[data-event="ideathon"] .event-logo-container {
-  width: 260px;
-  height: 260px;
+  width: min(450px, 95%);
+  height: min(450px, 95%);
+  max-width: 480px;
+  max-height: 480px;
+  transform: scale(1.12);
 }
 
 /* Event Date Display - Repositioned */
@@ -1838,13 +1908,13 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Event Title Main - More Prominent */
+/* Event Title Main - Smaller to Give Logo Prominence */
 .event-title-main {
   font-family: 'Inknut Antiqua', serif;
-  font-size: 2.2rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: white;
-  margin: 1.5rem 0;
+  margin: 0.8rem 0;
   text-align: center;
   background: linear-gradient(45deg, #ffffff, #e8e8e8, #ffffff);
   background-size: 200% 200%;
@@ -1859,23 +1929,24 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
 }
 
 .main-card:hover .event-title-main {
-  transform: translateY(-8px) scale(1.08);
+  transform: translateY(-3px) scale(1.03);
   text-shadow: 
-    0 8px 20px rgba(0, 0, 0, 0.5),
-    0 0 30px rgba(93, 93, 245, 0.6);
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(93, 93, 245, 0.4);
   color: rgba(255, 255, 255, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Event Status Badge - Enhanced */
+/* Event Status Badge - Smaller for Logo Prominence */
 .event-status {
-  padding: 0.8rem 2rem;
-  border-radius: 30px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
   font-family: 'Inclusive Sans', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.8rem;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   border: 2px solid transparent;
@@ -1916,18 +1987,265 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Register Button - Enhanced */
+/* STUNNING ANIMATED REGISTER BUTTONS FOR IDEATHON & ELOCUTION */
+
+/* Enhanced Register Button Base for Competition Events */
+.event-card-container[data-event="ideathon"] .register-btn,
+.event-card-container[data-event="elocution"] .register-btn {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, 
+    rgba(93, 93, 245, 0.9), 
+    rgba(255, 215, 0, 0.8), 
+    rgba(93, 93, 245, 0.9)
+  );
+  background-size: 300% 300%;
+  animation: gradientShift 3s ease-in-out infinite;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 
+    0 8px 25px rgba(93, 93, 245, 0.4),
+    0 0 40px rgba(255, 215, 0, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+/* Floating Particles Background */
+.event-card-container[data-event="ideathon"] .register-btn::before,
+.event-card-container[data-event="elocution"] .register-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.8) 2px, transparent 2px),
+    radial-gradient(circle at 80% 50%, rgba(255, 215, 0, 0.8) 1px, transparent 1px),
+    radial-gradient(circle at 40% 80%, rgba(93, 93, 245, 0.8) 1px, transparent 1px);
+  background-size: 50px 50px, 30px 30px, 40px 40px;
+  animation: particleFloat 4s ease-in-out infinite;
+  opacity: 0.6;
+  border-radius: 50px;
+  z-index: 1;
+}
+
+/* Shimmer Effect */
+.event-card-container[data-event="ideathon"] .register-btn::after,
+.event-card-container[data-event="elocution"] .register-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, 
+    transparent 30%, 
+    rgba(255, 255, 255, 0.8) 50%, 
+    transparent 70%
+  );
+  animation: shimmerSweep 2.5s ease-in-out infinite;
+  z-index: 2;
+  border-radius: 50px;
+}
+
+/* Text and Icon Styling */
+.event-card-container[data-event="ideathon"] .register-btn i,
+.event-card-container[data-event="elocution"] .register-btn i {
+  position: relative;
+  z-index: 3;
+  font-size: 1.2rem;
+  animation: iconPulse 2s ease-in-out infinite;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.event-card-container[data-event="ideathon"] .register-btn span,
+.event-card-container[data-event="elocution"] .register-btn span {
+  position: relative;
+  z-index: 3;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover Effects - DRAMATIC */
+.event-card-container[data-event="ideathon"] .register-btn:hover,
+.event-card-container[data-event="elocution"] .register-btn:hover {
+  transform: translateY(-8px) scale(1.08);
+  background: linear-gradient(45deg, 
+    rgba(255, 215, 0, 1), 
+    rgba(93, 93, 245, 1), 
+    rgba(255, 215, 0, 1)
+  );
+  background-size: 400% 400%;
+  animation: gradientShiftHover 1.5s ease-in-out infinite;
+  box-shadow: 
+    0 15px 40px rgba(93, 93, 245, 0.6),
+    0 5px 20px rgba(255, 215, 0, 0.5),
+    0 0 60px rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.event-card-container[data-event="ideathon"] .register-btn:hover i,
+.event-card-container[data-event="elocution"] .register-btn:hover i {
+  transform: rotate(360deg) scale(1.3);
+  animation: iconSpinGlow 1s ease-in-out infinite;
+  color: rgba(255, 255, 255, 1);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+}
+
+.event-card-container[data-event="ideathon"] .register-btn:hover span,
+.event-card-container[data-event="elocution"] .register-btn:hover span {
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 2px 8px rgba(0, 0, 0, 0.5);
+  animation: textGlow 1.5s ease-in-out infinite alternate;
+}
+
+/* Keyframe Animations */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes gradientShiftHover {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes particleFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(90deg); }
+  50% { transform: translateY(0px) rotate(180deg); }
+  75% { transform: translateY(-5px) rotate(270deg); }
+}
+
+@keyframes shimmerSweep {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  50% { transform: translateX(50%) translateY(0%) rotate(45deg); opacity: 1; }
+  100% { transform: translateX(200%) translateY(100%) rotate(45deg); opacity: 0; }
+}
+
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes iconSpinGlow {
+  0%, 100% { 
+    transform: rotate(0deg) scale(1.3);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+  }
+  50% { 
+    transform: rotate(180deg) scale(1.4);
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 1));
+  }
+}
+
+@keyframes textGlow {
+  0% { 
+    text-shadow: 
+      0 0 5px rgba(255, 255, 255, 0.8),
+      0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+  100% { 
+    text-shadow: 
+      0 0 20px rgba(255, 255, 255, 1),
+      0 0 30px rgba(255, 215, 0, 0.8),
+      0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Special Effects for Ideathon (Lightbulb icon theme) */
+.event-card-container[data-event="ideathon"] .register-btn {
+  background: linear-gradient(45deg, 
+    rgba(93, 93, 245, 0.9), 
+    rgba(255, 193, 7, 0.8), 
+    rgba(93, 93, 245, 0.9)
+  );
+}
+
+.event-card-container[data-event="ideathon"] .register-btn:hover {
+  background: linear-gradient(45deg, 
+    rgba(255, 193, 7, 1), 
+    rgba(93, 93, 245, 1), 
+    rgba(255, 193, 7, 1)
+  );
+}
+
+/* Special Effects for Elocution (Microphone theme) */
+.event-card-container[data-event="elocution"] .register-btn {
+  background: linear-gradient(45deg, 
+    rgba(93, 93, 245, 0.9), 
+    rgba(139, 69, 19, 0.8), 
+    rgba(93, 93, 245, 0.9)
+  );
+}
+
+.event-card-container[data-event="elocution"] .register-btn:hover {
+  background: linear-gradient(45deg, 
+    rgba(139, 69, 19, 1), 
+    rgba(93, 93, 245, 1), 
+    rgba(139, 69, 19, 1)
+  );
+}
+
+/* Mobile Responsive Styles for Enhanced Register Buttons */
+@media (max-width: 768px) {
+  .event-card-container[data-event="ideathon"] .register-btn,
+  .event-card-container[data-event="elocution"] .register-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    border-radius: 40px;
+  }
+  
+  .event-card-container[data-event="ideathon"] .register-btn i,
+  .event-card-container[data-event="elocution"] .register-btn i {
+    font-size: 1rem;
+  }
+  
+  .event-card-container[data-event="ideathon"] .register-btn:hover,
+  .event-card-container[data-event="elocution"] .register-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+  }
+}
+
+@media (max-width: 480px) {
+  .event-card-container[data-event="ideathon"] .register-btn,
+  .event-card-container[data-event="elocution"] .register-btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    gap: 0.6rem;
+  }
+  
+  .event-card-container[data-event="ideathon"] .register-btn:hover,
+  .event-card-container[data-event="elocution"] .register-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+  }
+}
+
+/* Default Register Button - For Non-Competition Events */
 .register-btn {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1.2rem 2.5rem;
+  gap: 0.8rem;
+  padding: 0.8rem 1.8rem;
   background: linear-gradient(135deg, rgba(93, 93, 245, 0.9), rgba(93, 93, 245, 0.7));
   border: 3px solid rgba(93, 93, 245, 0.6);
   border-radius: 50px;
   color: white;
   font-family: 'Inclusive Sans', sans-serif;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -1944,7 +2262,7 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
   transform-style: preserve-3d;
 }
 
-/* Pulse animation for register button */
+/* Pulse animation for default register button */
 .register-btn::after {
   content: '';
   position: absolute;
@@ -2320,22 +2638,23 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Card Hover Effects - Enhanced */
+/* Professional Card Container Hover Effects */
 .event-card-container:hover .main-card {
-  transform: translateY(-15px) scale(1.05) rotateX(5deg);
+  transform: translateY(-6px) scale(1.02);
   box-shadow: 
-    0 25px 70px rgba(0, 0, 0, 0.25),
-    0 10px 30px rgba(93, 93, 245, 0.2);
-  border-color: rgba(93, 93, 245, 0.4);
+    0 15px 40px rgba(0, 0, 0, 0.15),
+    0 8px 20px rgba(93, 93, 245, 0.15);
+  border-color: rgba(93, 93, 245, 0.35);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .event-card-container:hover .main-card::after {
   opacity: 0.8;
 }
 
-/* Card reveal animation enhancement */
+/* Professional Card reveal animation */
 .event-card-container {
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* Mobile Responsiveness */
@@ -2346,29 +2665,29 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
   }
   
   .main-card {
-    padding: 2rem 1.5rem;
+    padding: 1.2rem 1rem;
     border-radius: 25px;
   }
   
   .event-logo-container {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 1.2rem;
+    width: 280px;
+    height: 280px;
+    margin-bottom: 0.8rem;
   }
   
   .event-logo {
-    width: 110px;
-    height: 110px;
+    width: 250px;
+    height: 250px;
   }
   
   .event-title-main {
-    font-size: 1.8rem;
-    margin: 1.2rem 0;
+    font-size: 1.4rem;
+    margin: 0.8rem 0;
   }
   
   .register-btn {
-    padding: 1rem 2rem;
-    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.85rem;
   }
   
   .event-date-display {
@@ -2427,23 +2746,23 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
   }
   
   .main-card {
-    padding: 1.5rem 1rem;
+    padding: 1rem 0.8rem;
   }
   
   .event-logo-container {
-    width: 130px;
-    height: 130px;
-    margin-bottom: 1rem;
+    width: 220px;
+    height: 220px;
+    margin-bottom: 0.6rem;
   }
   
   .event-logo {
-    width: 95px;
-    height: 95px;
+    width: 190px;
+    height: 190px;
   }
   
   .event-title-main {
-    font-size: 1.6rem;
-    margin: 1rem 0;
+    font-size: 1.2rem;
+    margin: 0.6rem 0;
   }
   
   .event-date-display {
@@ -2461,14 +2780,14 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
   }
   
   .register-btn {
-    padding: 0.9rem 1.8rem;
-    font-size: 0.95rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
   }
   
   .event-status {
-    padding: 0.6rem 1.5rem;
-    font-size: 0.8rem;
-    margin-bottom: 1.2rem;
+    padding: 0.4rem 1.2rem;
+    font-size: 0.7rem;
+    margin-bottom: 0.6rem;
   }
 }
 
@@ -2523,12 +2842,17 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
     gap: 2rem;
     margin-top: 4rem;
     position: relative;
+    width: 100%;
+    padding: 0 1rem;
 }
 
-/* Ensure event containers maintain proper spacing */
+/* Ensure event containers maintain proper spacing and don't overflow */
 .events-grid .event-card-container {
   position: relative;
   width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 /* Hide original event card styles when using new system */
@@ -2556,9 +2880,10 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
 }
 
 .event-card:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px) scale(1.01);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .event-header {
@@ -2698,11 +3023,20 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
     color: white;
 }
 
-/* Responsive Design for Events */
+/* Responsive Design for Events - Mobile First Approach */
 @media (max-width: 768px) {
     .events-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+        padding: 0 0.5rem;
+        margin-top: 2rem;
+    }
+    
+    .events-grid .event-card-container {
+        max-width: 100%;
+        width: 100%;
+        margin: 0 auto;
+        overflow: hidden;
     }
     
     .events-title {
@@ -2715,6 +3049,37 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
     
     .event-content {
         padding: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .events-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .events-grid .event-card-container {
+        max-width: 100%;
+        margin: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .events-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0;
+        width: 100%;
+    }
+    
+    .events-grid .event-card-container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
     }
 }
 
@@ -3596,16 +3961,19 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
   }
 
   .logo-title-wrapper {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 0.5rem !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    gap: 0.2rem !important;
     margin-bottom: 1rem !important;
+    justify-content: center !important;
   }
 
   .logo-title-wrapper #logo {
-    width: 50px !important;
-    height: 50px !important;
-    margin: 0 !important;
+    width: auto !important;
+    height: 4rem !important;
+    margin-right: 0.2rem !important;
+    margin-bottom: 0 !important;
+    transform: translateY(-0.3rem) !important;
   }
 
   .version-background {
@@ -4751,57 +5119,215 @@ html body section:first-of-type {
   padding-top: 80px !important;
 }
 
-/* Mobile Event Card Responsive Styles */
+/* Mobile Event Card Responsive Styles - NO OVERFLOW, MOBILE OPTIMIZED */
 @media (max-width: 768px) {
   .event-card-container {
-    height: 420px !important;
+    height: 450px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 auto 2rem auto !important;
+    overflow: hidden !important;
+  }
+  
+  .main-card {
+    padding: 1rem !important;
   }
   
   .event-logo-container {
-    width: 160px !important;
-    height: 160px !important;
+    width: min(240px, 70vw) !important;
+    height: min(240px, 70vw) !important;
+    max-width: 260px !important;
+    max-height: 260px !important;
+    transform: scale(1.0) !important;
+    margin-bottom: 0.5rem !important;
   }
   
   .event-logo {
-    width: 140px !important;
-    height: 140px !important;
+    width: min(220px, 65vw) !important;
+    height: min(220px, 65vw) !important;
+    max-width: 240px !important;
+    max-height: 240px !important;
+    transform: scale(1.0) !important;
   }
   
-  /* Ideathon Logo - Bigger on tablet */
+  /* Ideathon Logo - Controlled size on tablet */
   .event-logo[src*="ideathon.png"] {
-    width: 170px !important;
-    height: 170px !important;
+    width: min(260px, 70vw) !important;
+    height: min(260px, 70vw) !important;
+    max-width: 280px !important;
+    max-height: 280px !important;
+    transform: scale(1.0) !important;
   }
   
   .event-card-container[data-event="ideathon"] .event-logo-container {
-    width: 190px !important;
-    height: 190px !important;
+    width: min(280px, 75vw) !important;
+    height: min(280px, 75vw) !important;
+    max-width: 300px !important;
+    max-height: 300px !important;
+    transform: scale(1.0) !important;
   }
 }
 
 @media (max-width: 480px) {
   .event-card-container {
-    height: 380px !important;
+    height: 400px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 auto 1.5rem auto !important;
+    overflow: hidden !important;
+  }
+  
+  .main-card {
+    padding: 0.8rem !important;
   }
   
   .event-logo-container {
-    width: 140px !important;
-    height: 140px !important;
+    width: min(200px, 60vw) !important;
+    height: min(200px, 60vw) !important;
+    max-width: 220px !important;
+    max-height: 220px !important;
+    transform: scale(1.0) !important;
+    margin-bottom: 0.5rem !important;
   }
   
   .event-logo {
-    width: 120px !important;
-    height: 120px !important;
+    width: min(180px, 55vw) !important;
+    height: min(180px, 55vw) !important;
+    max-width: 200px !important;
+    max-height: 200px !important;
+    transform: scale(1.0) !important;
   }
   
-  /* Ideathon Logo - Bigger on mobile */
+  /* Ideathon Logo - Mobile optimized */
   .event-logo[src*="ideathon.png"] {
-    width: 150px !important;
-    height: 150px !important;
+    width: min(220px, 60vw) !important;
+    height: min(220px, 60vw) !important;
+    max-width: 240px !important;
+    max-height: 240px !important;
+    transform: scale(1.0) !important;
   }
   
   .event-card-container[data-event="ideathon"] .event-logo-container {
-    width: 170px !important;
-    height: 170px !important;
+    width: min(240px, 65vw) !important;
+    height: min(240px, 65vw) !important;
+    max-width: 260px !important;
+    max-height: 260px !important;
+    transform: scale(1.0) !important;
+  }
+  
+  .event-title-main {
+    font-size: 1.3rem !important;
+    margin: 0.5rem 0 !important;
+  }
+  
+  .event-status {
+    font-size: 0.7rem !important;
+    padding: 0.4rem 1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+}
+  
+  /* Ideathon Logo - STILL MASSIVE on mobile */
+  .event-logo[src*="ideathon.png"] {
+    width: 320px !important;
+    height: 320px !important;
+    transform: scale(1.02) !important;
+  }
+  
+  .event-card-container[data-event="ideathon"] .event-logo-container {
+    width: 340px !important;
+    height: 340px !important;
+    transform: scale(1.05) !important;
+  }
+}
+
+/* Global Mobile Overflow Prevention */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden !important;
+  }
+  
+  .events-section {
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+  
+  .events-container {
+    width: 100% !important;
+    padding: 0 1rem !important;
+    overflow-x: hidden !important;
+  }
+}
+
+/* Extra Small Mobile - Fully Contained Design */
+@media (max-width: 375px) {
+  .event-card-container {
+    height: 360px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+  
+  .main-card {
+    padding: 0.6rem !important;
+  }
+  
+  .event-logo-container {
+    width: min(160px, 50vw) !important;
+    height: min(160px, 50vw) !important;
+    max-width: 180px !important;
+    max-height: 180px !important;
+    transform: scale(1.0) !important;
+    margin-bottom: 0.3rem !important;
+  }
+  
+  .event-logo {
+    width: min(140px, 45vw) !important;
+    height: min(140px, 45vw) !important;
+    max-width: 160px !important;
+    max-height: 160px !important;
+    transform: scale(1.0) !important;
+  }
+  
+  /* Ideathon Logo - Compact but visible */
+  .event-logo[src*="ideathon.png"] {
+    width: min(170px, 50vw) !important;
+    height: min(170px, 50vw) !important;
+    max-width: 190px !important;
+    max-height: 190px !important;
+    transform: scale(1.0) !important;
+  }
+  
+  .event-card-container[data-event="ideathon"] .event-logo-container {
+    width: min(190px, 55vw) !important;
+    height: min(190px, 55vw) !important;
+    max-width: 210px !important;
+    max-height: 210px !important;
+    transform: scale(1.0) !important;
+  }
+  
+  .event-title-main {
+    font-size: 1.2rem !important;
+    margin: 0.3rem 0 !important;
+  }
+  
+  .event-status {
+    font-size: 0.65rem !important;
+    padding: 0.3rem 0.8rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+  
+  .event-date-display {
+    top: 1rem !important;
+    right: 1rem !important;
+    padding: 0.6rem 0.8rem !important;
+  }
+  
+  .event-day {
+    font-size: 1.5rem !important;
+  }
+  
+  .event-month {
+    font-size: 0.8rem !important;
   }
 }

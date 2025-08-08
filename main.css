@@ -114,9 +114,16 @@ body {
   font-family: 'Arial', sans-serif;
   font-size: 8rem;
   font-weight: 900;
-  color: rgba(93, 93, 245, 0.1);
+  color: rgba(255, 215, 0, 0.4);
+  text-shadow: 
+    0 0 15px rgba(255, 215, 0, 0.9),
+    0 0 30px rgba(255, 215, 0, 0.7),
+    0 0 45px rgba(255, 185, 15, 0.5),
+    0 0 60px rgba(218, 165, 32, 0.4),
+    0 0 80px rgba(255, 223, 0, 0.3),
+    0 0 100px rgba(255, 140, 0, 0.2);
   z-index: -1;
-  animation: versionPulse 3s ease-in-out infinite;
+  animation: versionGoldGlow 3s ease-in-out infinite alternate;
 }
 
 /* Decorative line matching main theme */
@@ -356,6 +363,58 @@ body {
   100% { left: 200px; }
 }
 
+@keyframes versionGlow {
+  0% {
+    color: rgba(112, 46, 188, 0.6);
+    text-shadow: 
+      0 0 10px rgba(112, 46, 188, 0.8),
+      0 0 20px rgba(112, 46, 188, 0.6),
+      0 0 30px rgba(112, 46, 188, 0.4),
+      0 0 40px rgba(112, 46, 188, 0.3),
+      0 0 60px rgba(112, 46, 188, 0.2),
+      0 0 80px rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    color: rgba(112, 46, 188, 0.9);
+    text-shadow: 
+      0 0 15px rgba(112, 46, 188, 1),
+      0 0 30px rgba(112, 46, 188, 0.8),
+      0 0 45px rgba(112, 46, 188, 0.6),
+      0 0 60px rgba(112, 46, 188, 0.4),
+      0 0 80px rgba(112, 46, 188, 0.3),
+      0 0 100px rgba(255, 255, 255, 0.2),
+      0 0 120px rgba(93, 93, 245, 0.2);
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+@keyframes versionGoldGlow {
+  0% {
+    color: rgba(255, 215, 0, 0.7);
+    text-shadow: 
+      0 0 10px rgba(255, 215, 0, 0.9),
+      0 0 20px rgba(255, 215, 0, 0.7),
+      0 0 30px rgba(255, 185, 15, 0.5),
+      0 0 40px rgba(218, 165, 32, 0.4),
+      0 0 60px rgba(255, 223, 0, 0.3),
+      0 0 80px rgba(255, 140, 0, 0.2);
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    color: rgba(255, 215, 0, 1);
+    text-shadow: 
+      0 0 15px rgba(255, 215, 0, 1),
+      0 0 30px rgba(255, 215, 0, 0.9),
+      0 0 45px rgba(255, 185, 15, 0.7),
+      0 0 60px rgba(218, 165, 32, 0.6),
+      0 0 80px rgba(255, 223, 0, 0.4),
+      0 0 100px rgba(255, 140, 0, 0.3),
+      0 0 120px rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
 @keyframes subtitleFade {
   from { 
     color: rgba(255, 255, 255, 0.8);
@@ -460,7 +519,7 @@ body {
 }
 #logo {
   width: auto;
-  height: 7rem;
+  height: 9rem;
   margin-right: 0;
   margin-bottom: 0;
   display: inline-block;
@@ -627,6 +686,45 @@ body {
   animation: fadeInUp 1.5s ease-out;
 }
 
+/* Countdown Timer Styling */
+#countdown-section {
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin: 3rem 0 4rem 0;
+}
+
+.countdown-timer {
+  display: inline-block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  box-sizing: border-box;
+  transform: scale(1.6);
+  transform-origin: center;
+  margin: 1rem 0;
+}
+
+/* Ensure countdown timer iframe is responsive */
+.countdown-timer iframe {
+  max-width: 100%;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Additional mobile override for countdown timer */
+@media (max-width: 375px) {
+  .countdown-timer {
+    transform: scale(1.1);
+    transform-origin: center;
+  }
+}
+
 .main-title-container {
   margin-bottom: 2rem;
   position: relative;
@@ -638,41 +736,55 @@ body {
   font-family: 'Arial', sans-serif;
   font-size: 3rem;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 0, 225, 0.7);
   text-shadow: 
-    0 0 10px rgba(255, 255, 255, 0.2),
-    0 0 20px rgba(255, 255, 255, 0.1),
-    0 0 30px rgba(255, 255, 255, 0.05);
+    0 0 10px rgba(255, 215, 0, 0.9),
+    0 0 20px rgba(255, 215, 0, 0.7),
+    0 0 30px rgba(255, 185, 15, 0.5),
+    0 0 40px rgba(218, 165, 32, 0.4),
+    0 0 60px rgba(255, 223, 0, 0.3),
+    0 0 80px rgba(255, 140, 0, 0.2);
   z-index: -1;
-  top: 60%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   user-select: none;
   pointer-events: none;
+  animation: versionGoldGlow 3s ease-in-out infinite alternate;
 }
 
 .main-title-container .logo-title-wrapper {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 0;
+  display: flex !important;
+  align-items: baseline !important;
+  justify-content: center !important;
+  gap: 0.1rem !important;
   margin-bottom: 1rem;
   line-height: 1;
+  flex-direction: row !important;
 }
 
 .main-title-container .logo-title-wrapper #logo {
   margin-bottom: 0;
-  margin-right: 0;
-  height: 4rem;
+  margin-right: 0.1rem;
+  height: 6.5rem;
   width: auto;
   vertical-align: baseline;
-  transform: translateY(0.3rem);
+  transform: translateY(-0.2rem);
   animation: fadeInUp 1.5s ease-out 0.2s both;
 }
 
 .main-title-container .main-title {
-  font-family: 'Audiowide', serif;
-  font-size: 4rem;
+  font-size: 5.5rem;
+  margin-bottom: 0;
+}
+
+.main-title-container .manthan-title {
+  font-size: 5rem;
+}
+
+.main-title-container .main-title {
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 6rem;
   font-weight: 400;
   margin: 0;
   position: relative;
@@ -873,16 +985,49 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
   .main-title-container .main-title {
-    font-size: 2.5rem;
+    font-size: 3.5rem !important;
+  }
+  
+  .main-title-container .manthan-title {
+    font-size: 3rem !important;
+  }
+  
+  .main-title-container .logo-title-wrapper {
+    display: flex !important;
+    align-items: baseline !important;
+    justify-content: center !important;
+    gap: 0.2rem !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
   }
   
   .main-title-container .logo-title-wrapper #logo {
-    height: 2.5rem;
-    transform: translateY(0.2rem);
+    height: 4rem !important;
+    width: auto !important;
+    transform: translateY(-0.3rem) !important;
+    margin-right: 0.2rem !important;
+    margin-bottom: 0 !important;
+    flex-shrink: 0 !important;
   }
   
   .countdown-subtitle {
     font-size: 1.2rem;
+  }
+  
+  /* Countdown Timer Mobile Styling */
+  #countdown-section {
+    margin: 2rem 0 !important;
+    padding: 0 1.5rem;
+    overflow: visible;
+    width: 100%;
+    max-width: 100vw;
+  }
+  
+  .countdown-timer {
+    transform: scale(1.4);
+    max-width: 100%;
+    width: auto !important;
+    min-width: 300px;
   }
   
   .navbar {
@@ -902,16 +1047,80 @@ body {
 
 @media (max-width: 480px) {
   .main-title-container .main-title {
-    font-size: 2rem;
+    font-size: 3rem !important;
+  }
+  
+  .main-title-container .manthan-title {
+    font-size: 2.5rem !important;
+  }
+  
+  .main-title-container .logo-title-wrapper {
+    display: flex !important;
+    align-items: baseline !important;
+    justify-content: center !important;
+    gap: 0.1rem !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
   }
   
   .main-title-container .logo-title-wrapper #logo {
-    height: 2rem;
-    transform: translateY(0.15rem);
+    height: 3.5rem !important;
+    width: auto !important;
+    transform: translateY(-0.4rem) !important;
+    margin-right: 0.1rem !important;
+    margin-bottom: 0 !important;
+    flex-shrink: 0 !important;
   }
   
   .countdown-subtitle {
     font-size: 1rem;
+  }
+  
+  /* Countdown Timer Mobile Styling for Small Screens */
+  #countdown-section {
+    margin: 1.5rem 0 !important;
+    padding: 0 1rem;
+    overflow: visible;
+    width: 100%;
+    max-width: 100vw;
+  }
+  
+  .countdown-timer {
+    transform: scale(1.2);
+    max-width: 100%;
+    width: auto !important;
+    min-width: 280px;
+    font-size: 0.9rem !important;
+  }
+}
+
+/* MOBILE LOGO FIX - FORCE HORIZONTAL LAYOUT v2 */
+/* Extra small mobile devices */
+@media (max-width: 375px) {
+  .main-title-container .main-title {
+    font-size: 2.5rem !important;
+  }
+  
+  .main-title-container .manthan-title {
+    font-size: 2rem !important;
+  }
+  
+  .main-title-container .logo-title-wrapper {
+    display: flex !important;
+    align-items: baseline !important;
+    justify-content: center !important;
+    gap: 0.05rem !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+  }
+  
+  .main-title-container .logo-title-wrapper #logo {
+    height: 3rem !important;
+    width: auto !important;
+    transform: translateY(-0.5rem) !important;
+    margin-right: 0.05rem !important;
+    margin-bottom: 0 !important;
+    flex-shrink: 0 !important;
   }
 }
 
@@ -1181,6 +1390,316 @@ html {
   }
   100% {
     left: 300px;
+  }
+}
+
+/* Stunning Animated Register Button */
+.stunning-register-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 40px;
+  background: linear-gradient(135deg, 
+    rgba(255, 215, 0, 0.9) 0%, 
+    rgba(255, 185, 15, 1) 25%, 
+    rgba(218, 165, 32, 1) 50%, 
+    rgba(255, 223, 0, 1) 75%, 
+    rgba(255, 140, 0, 0.9) 100%);
+  background-size: 300% 300%;
+  border: none;
+  border-radius: 50px;
+  color: #000000;
+  font-family: 'Inclusive Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 
+    0 8px 25px rgba(255, 215, 0, 0.4),
+    0 4px 15px rgba(255, 185, 15, 0.3),
+    inset 0 1px 3px rgba(255, 255, 255, 0.3),
+    inset 0 -1px 3px rgba(0, 0, 0, 0.1);
+  animation: btnGradientShift 4s ease-in-out infinite, btnGlow 3s ease-in-out infinite alternate;
+  z-index: 10;
+  min-width: 200px;
+  user-select: none;
+}
+
+.stunning-register-btn::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    rgba(255, 215, 0, 0.8), 
+    rgba(255, 185, 15, 0.9), 
+    rgba(218, 165, 32, 0.8), 
+    rgba(255, 223, 0, 0.9),
+    rgba(255, 140, 0, 0.8));
+  background-size: 400% 400%;
+  border-radius: 52px;
+  z-index: -1;
+  animation: btnBorderGlow 3s ease-in-out infinite;
+  filter: blur(1px);
+}
+
+.stunning-register-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 
+    0 12px 35px rgba(255, 215, 0, 0.6),
+    0 8px 25px rgba(255, 185, 15, 0.4),
+    0 0 40px rgba(255, 223, 0, 0.3),
+    inset 0 1px 3px rgba(255, 255, 255, 0.4);
+  animation-duration: 2s, 1.5s;
+}
+
+.stunning-register-btn:active {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 
+    0 6px 20px rgba(255, 215, 0, 0.5),
+    0 3px 12px rgba(255, 185, 15, 0.3);
+}
+
+/* Button Background Effects */
+.btn-bg-effects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50px;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.btn-glow-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  border: 2px solid rgba(255, 215, 0, 0.6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: btnRingPulse 2.5s ease-in-out infinite;
+}
+
+.btn-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 215, 0, 0.8) 100%);
+  border-radius: 50%;
+  animation: btnParticleFloat 3s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
+
+.btn-particle-1 {
+  top: 15%;
+  left: 20%;
+  animation-delay: 0s;
+  animation-duration: 2.8s;
+}
+
+.btn-particle-2 {
+  top: 80%;
+  right: 25%;
+  animation-delay: 0.7s;
+  animation-duration: 3.2s;
+}
+
+.btn-particle-3 {
+  top: 30%;
+  right: 15%;
+  animation-delay: 1.4s;
+  animation-duration: 2.5s;
+}
+
+.btn-particle-4 {
+  bottom: 20%;
+  left: 30%;
+  animation-delay: 2.1s;
+  animation-duration: 3.5s;
+}
+
+/* Button Text and Icon */
+.btn-text {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 5;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  animation: btnIconFloat 3s ease-in-out infinite;
+}
+
+.stunning-register-btn:hover .btn-icon {
+  transform: translateX(3px) rotate(15deg);
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.stunning-register-btn:hover .btn-text {
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+/* Button Shimmer Effect */
+.btn-shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.4) 50%, 
+    transparent 100%);
+  border-radius: 50px;
+  animation: btnShimmer 3s ease-in-out infinite;
+  z-index: 3;
+}
+
+/* Keyframe Animations for Button */
+@keyframes btnGradientShift {
+  0%, 100% { 
+    background-position: 0% 50%; 
+  }
+  50% { 
+    background-position: 100% 50%; 
+  }
+}
+
+@keyframes btnGlow {
+  0% {
+    box-shadow: 
+      0 8px 25px rgba(255, 215, 0, 0.4),
+      0 4px 15px rgba(255, 185, 15, 0.3),
+      inset 0 1px 3px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    box-shadow: 
+      0 12px 35px rgba(255, 215, 0, 0.6),
+      0 8px 25px rgba(255, 185, 15, 0.5),
+      0 0 30px rgba(255, 223, 0, 0.4),
+      inset 0 1px 3px rgba(255, 255, 255, 0.4);
+  }
+}
+
+@keyframes btnBorderGlow {
+  0%, 100% { 
+    background-position: 0% 50%;
+    filter: blur(1px);
+  }
+  50% { 
+    background-position: 100% 50%;
+    filter: blur(2px);
+  }
+}
+
+@keyframes btnRingPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.3;
+  }
+}
+
+@keyframes btnParticleFloat {
+  0%, 100% { 
+    transform: translateY(0px) scale(1);
+    opacity: 0.8;
+  }
+  25% { 
+    transform: translateY(-15px) scale(1.2);
+    opacity: 1;
+  }
+  50% { 
+    transform: translateY(-8px) scale(0.9);
+    opacity: 0.6;
+  }
+  75% { 
+    transform: translateY(-20px) scale(1.1);
+    opacity: 0.9;
+  }
+}
+
+@keyframes btnIconFloat {
+  0%, 100% { 
+    transform: translateY(0px);
+  }
+  50% { 
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes btnShimmer {
+  0% { 
+    left: -100%;
+    opacity: 0;
+  }
+  50% { 
+    opacity: 1;
+  }
+  100% { 
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+/* Mobile Responsive for Stunning Button */
+@media (max-width: 768px) {
+  .stunning-register-btn {
+    padding: 16px 35px;
+    font-size: 1rem;
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stunning-register-btn {
+    padding: 14px 30px;
+    font-size: 0.95rem;
+    min-width: 160px;
+  }
+  
+  .btn-icon {
+    font-size: 1.1rem;
+  }
+}
+
+/* Extra stunning effect on load */
+.stunning-register-btn {
+  animation-delay: 0.8s;
+  opacity: 0;
+  animation: btnGradientShift 4s ease-in-out infinite, 
+             btnGlow 3s ease-in-out infinite alternate,
+             btnFadeIn 1.2s ease-out 0.8s forwards;
+}
+
+@keyframes btnFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
