@@ -5290,7 +5290,7 @@ html body section:first-of-type {
     height: 340px !important;
     transform: scale(1.05) !important;
   }
-}
+
 
 /* Global Mobile Overflow Prevention */
 @media (max-width: 768px) {
