@@ -1987,6 +1987,57 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* Rulebook Download Button - Enhanced Styling */
+.rulebook-btn {
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.rulebook-btn:hover {
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 8px 25px rgba(93, 93, 245, 0.4), 0 4px 15px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, rgba(93, 93, 245, 0.9), rgba(93, 93, 245, 0.7));
+}
+
+.rulebook-btn .fas {
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.rulebook-btn:hover .fas {
+  transform: scale(1.2) rotate(5deg);
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.rulebook-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.rulebook-btn:hover::before {
+  left: 100%;
+}
+
+/* Active state for download feedback */
+.rulebook-btn:active {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 4px 15px rgba(93, 93, 245, 0.3);
+}
+
 /* STUNNING ANIMATED REGISTER BUTTONS FOR IDEATHON & ELOCUTION */
 
 /* Enhanced Register Button Base for Competition Events */
