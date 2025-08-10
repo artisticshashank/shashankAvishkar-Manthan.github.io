@@ -5,6 +5,68 @@
     box-sizing: border-box;
 }
 
+/* Performance Optimizations for Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+body {
+    overflow-x: hidden;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* GPU Acceleration for animated elements */
+.fade-in-element,
+.fade-in-section,
+.event-card,
+.main-card,
+.navbar,
+.prize-pool-container,
+.floating-sparkle,
+.prize-sparkle {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+}
+
+/* Optimize will-change for frequently animated elements */
+.event-card:hover,
+.main-card:hover,
+.register-btn:hover,
+.navbar:hover {
+    will-change: transform, opacity, filter;
+}
+
+/* Remove will-change after animations complete */
+.event-card,
+.main-card,
+.register-btn,
+.navbar {
+    will-change: auto;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .floating-sparkle,
+    .prize-sparkle {
+        animation: none !important;
+    }
+}
+
 img, video { max-width: 100%; height: auto; }
 
 :root {
@@ -6193,6 +6255,55 @@ html body section:first-of-type {
   }
 }
 
+/* Performance Optimizations for Mobile Devices */
+@media (max-width: 768px) {
+  /* Reduce backdrop-filter blur on mobile for better performance */
+  .navbar,
+  .main-card,
+  .event-card,
+  .prize-pool-container {
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+  
+  /* Simplify animations on mobile */
+  .floating-sparkle,
+  .prize-sparkle {
+    animation-duration: 3s !important;
+  }
+  
+  /* Reduce complex shadows on mobile */
+  .event-card,
+  .main-card {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
+/* Further optimizations for very small screens */
+@media (max-width: 480px) {
+  /* Minimal backdrop blur for performance */
+  .navbar,
+  .main-card,
+  .event-card,
+  .prize-pool-container {
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+  }
+  
+  /* Disable complex animations on very small screens */
+  .floating-sparkle,
+  .prize-sparkle {
+    animation: none !important;
+    opacity: 0.3 !important;
+  }
+  
+  /* Simplify transforms */
+  .event-card:hover,
+  .main-card:hover {
+    transform: translateY(-2px) !important;
+  }
+}
+
 /* Extra Small Mobile - Fully Contained Design */
 @media (max-width: 375px) {
   .event-card-container {
@@ -6263,5 +6374,327 @@ html body section:first-of-type {
   
   .event-month {
     font-size: 0.8rem !important;
+  }
+}
+
+/* ========================================
+   WINNERS OF AM2K24 SECTION
+   ======================================== */
+
+.winners-section {
+  background: linear-gradient(180deg, 
+    rgba(13, 13, 35, 0.95) 0%, 
+    rgba(25, 25, 60, 0.98) 50%, 
+    rgba(35, 35, 80, 0.95) 100%);
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.winners-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(93, 93, 245, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(155, 89, 182, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.winners-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.winners-title {
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #FFD700, #FFA500, #FF8C00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  from {
+    text-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+  }
+  to {
+    text-shadow: 0 6px 30px rgba(255, 215, 0, 0.5);
+  }
+}
+
+.winners-subtitle {
+  font-family: 'Inclusive Sans', sans-serif;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  margin-bottom: 4rem;
+  font-weight: 500;
+}
+
+.winners-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.winners-category {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 30px;
+  padding: 3rem;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.winners-category:hover {
+  transform: translateY(-5px);
+  border-color: rgba(93, 93, 245, 0.4);
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.3),
+    0 0 50px rgba(93, 93, 245, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.category-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.category-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  animation: iconFloat 3s ease-in-out infinite;
+  filter: drop-shadow(0 4px 15px rgba(255, 215, 0, 0.4));
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.category-title {
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #ffffff, #e0e0e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.category-description {
+  font-family: 'Inclusive Sans', sans-serif;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 500;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Image Carousel Styling */
+.image-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 500px;
+  object-fit: contain;
+  border-radius: 20px;
+  transition: all 0.4s ease;
+  filter: brightness(0.9) contrast(1.1);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.carousel-slide:hover img {
+  transform: scale(1.05);
+  filter: brightness(1) contrast(1.2);
+}
+
+/* Carousel Controls */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  background: rgba(93, 93, 245, 0.8);
+  border-color: rgba(93, 93, 245, 0.6);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 25px rgba(93, 93, 245, 0.4);
+}
+
+.carousel-prev {
+  left: 20px;
+}
+
+.carousel-next {
+  right: 20px;
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.3rem;
+  margin-top: 2rem;
+}
+
+.indicator {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  border: 0.5px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: linear-gradient(45deg, #FFD700, #FFA500);
+  border-color: rgba(255, 215, 0, 0.7);
+  transform: scale(1.0);
+  box-shadow: 0 1px 4px rgba(255, 215, 0, 0.5);
+}
+
+.indicator:hover {
+  border-color: rgba(255, 255, 255, 0.7);
+  transform: scale(1.0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .winners-section {
+    padding: 4rem 0;
+  }
+  
+  .winners-container {
+    padding: 0 1rem;
+  }
+  
+  .winners-title {
+    font-size: 2.5rem;
+  }
+  
+  .winners-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+  }
+  
+  .winners-category {
+    padding: 2rem 1.5rem;
+  }
+  
+  .category-title {
+    font-size: 2rem;
+  }
+  
+  .category-icon {
+    font-size: 3rem;
+  }
+  
+  .carousel-slide img {
+    height: 350px;
+  }
+  
+  .carousel-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+  }
+  
+  .carousel-prev {
+    left: 10px;
+  }
+  
+  .carousel-next {
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .winners-title {
+    font-size: 2rem;
+  }
+  
+  .winners-category {
+    padding: 1.5rem 1rem;
+  }
+  
+  .category-title {
+    font-size: 1.6rem;
+  }
+  
+  .category-description {
+    font-size: 1rem;
+  }
+  
+  .carousel-slide img {
+    height: 280px;
+  }
+  
+  .carousel-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 0.9rem;
   }
 }
