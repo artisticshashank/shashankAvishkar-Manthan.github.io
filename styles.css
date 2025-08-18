@@ -4353,13 +4353,205 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
 }
 
 .contact-form {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 20px;
     padding: 2rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Clean Form Styles */
+.clean-form-container {
+    width: 100%;
+}
+
+.clean-form-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.clean-form-title {
+    font-family: 'Inknut Antiqua', serif;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: white;
+    font-weight: 500;
+}
+
+.clean-form-subtitle {
+    font-family: 'Inclusive Sans', sans-serif;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+.clean-form-content {
+    margin-bottom: 2rem;
+}
+
+.clean-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.clean-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.clean-textarea-group {
+    grid-column: 1 / -1;
+}
+
+.clean-label {
+    font-family: 'Inclusive Sans', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.clean-input,
+.clean-textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-family: 'Inclusive Sans', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+}
+
+.clean-input::placeholder,
+.clean-textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.clean-input:focus,
+.clean-textarea:focus {
+    outline: none;
+    border-color: rgba(93, 93, 245, 0.6);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(93, 93, 245, 0.1);
+    transform: translateY(-1px);
+}
+
+.clean-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.clean-character-count {
+    font-family: 'Inclusive Sans', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: right;
+    margin-top: 0.5rem;
+}
+
+.clean-form-submit {
+    text-align: center;
+}
+
+.clean-submit-btn {
+    background: linear-gradient(135deg, rgba(93, 93, 245, 0.8), rgba(93, 93, 245, 0.6));
+    border: 2px solid rgba(93, 93, 245, 0.3);
+    border-radius: 12px;
+    color: white;
+    font-family: 'Inclusive Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.clean-submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.clean-submit-btn:hover {
+    background: linear-gradient(135deg, rgba(93, 93, 245, 0.9), rgba(93, 93, 245, 0.7));
+    border-color: rgba(93, 93, 245, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(93, 93, 245, 0.3);
+}
+
+.clean-submit-btn:hover::before {
+    left: 100%;
+}
+
+.clean-submit-btn:active {
+    transform: translateY(0);
+}
+
+.clean-form-message {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    font-family: 'Inclusive Sans', sans-serif;
+    font-size: 0.9rem;
+    text-align: center;
+    display: none;
+}
+
+.clean-form-message.success {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    color: #22c55e;
+    display: block;
+}
+
+.clean-form-message.error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+    display: block;
+}
+
+/* Responsive Design for Clean Form */
+@media (max-width: 768px) {
+    .clean-form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .clean-form-title {
+        font-size: 1.8rem;
+    }
+    
+    .contact-form {
+        padding: 1.5rem;
+        margin: 0 1rem;
+    }
+    
+    .clean-submit-btn {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 .form-container h3 {

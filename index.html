@@ -1079,21 +1079,65 @@
           </div>
         </div>
         
-        <!--div class="contact-form fade-in-element">
-          <form class="form-container">
-            <h3>Send us a message</h3>
-            <div class="form-group">
-              <input type="text" placeholder="Your Name" required>
+        <div class="contact-form fade-in-element">
+          <form class="clean-form-container" action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+            <input type="hidden" name="access_key" value="5916bc57-c001-4780-8aed-d3f236f1de5a" />
+            
+            <!-- Clean Header Section -->
+            <div class="clean-form-header">
+              <h3 class="clean-form-title">Quick Connect
+
+</h3>
+              <p class="clean-form-subtitle">Have any questions or doubts? We're here to help!</p>
             </div>
-            <div class="form-group">
-              <input type="email" placeholder="Your Email" required>
+
+            <!-- Clean Form Fields -->
+            <div class="clean-form-content">
+              <div class="clean-form-row">
+                <div class="clean-form-group">
+                  <label for="name" class="clean-label">Full Name</label>
+                  <input type="text" id="name" name="name" class="clean-input" placeholder="Enter your full name" required>
+                </div>
+                <div class="clean-form-group">
+                  <label for="email" class="clean-label">Email Address</label>
+                  <input type="email" id="email" name="email" class="clean-input" placeholder="Enter your email address" required>
+                </div>
+              </div>
+              
+              <div class="clean-form-row">
+                <div class="clean-form-group">
+                  <label for="college" class="clean-label">College Name</label>
+                  <input type="text" id="college" name="college" class="clean-input" placeholder="Enter your college/institution name" required>
+                </div>
+                <div class="clean-form-group">
+                  <label for="phone" class="clean-label">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" class="clean-input" placeholder="Enter your phone number" required>
+                </div>
+              </div>
+              
+              <div class="clean-form-group clean-textarea-group">
+                <label for="query" class="clean-label">Your Query/Message</label>
+                <textarea id="query" name="query" class="clean-textarea" placeholder="Please describe your question or message..." rows="5" required></textarea>
+                <div class="clean-character-count">
+                  <span id="charCount">0</span>/500 characters
+                </div>
+              </div>
             </div>
-            <div class="form-group">
-              <textarea placeholder="Your Message" rows="5" required></textarea>
+            
+            <!-- Clean Submit Button -->
+            <div class="clean-form-submit">
+              <button type="submit" class="clean-submit-btn" id="submitBtn">
+                <i class="fas fa-paper-plane"></i>
+                Send Message
+              </button>
+              
+              <!-- Success/Error Messages -->
+              <div class="clean-form-message" id="formMessage">
+                <div class="clean-message-text"></div>
+              </div>
             </div>
-            <button type="submit" class="form-button">Send Message</button>
           </form>
-        </div-->
+        </div>
       </div>
     </div>
   </section>
@@ -1575,6 +1619,106 @@
         });
       });
     });
+
+    // Clean Contact Form Interactions
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contactForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const formMessage = document.getElementById('formMessage');
+      const charCount = document.getElementById('charCount');
+      const queryTextarea = document.getElementById('query');
+      
+      // Character counter for textarea
+      if (queryTextarea && charCount) {
+        queryTextarea.addEventListener('input', function() {
+          const length = this.value.length;
+          charCount.textContent = length;
+          
+          // Limit to 500 characters
+          if (length > 500) {
+            this.value = this.value.substring(0, 500);
+            charCount.textContent = '500';
+          }
+          
+          // Change color based on character count
+          if (length > 450) {
+            charCount.style.color = '#ef4444';
+          } else if (length > 400) {
+            charCount.style.color = '#f59e0b';
+          } else {
+            charCount.style.color = 'rgba(255, 255, 255, 0.6)';
+          }
+        });
+      }
+      
+      // Form submission
+      if (form) {
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          
+          // Show loading state
+          const originalText = submitBtn.innerHTML;
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+          submitBtn.disabled = true;
+          
+          try {
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+              method: 'POST',
+              body: formData,
+              headers: {
+                'Accept': 'application/json'
+              }
+            });
+            
+            if (response.ok) {
+              // Success
+              showCleanFormMessage('success', 'Message sent successfully! We\'ll get back to you within 2 hours.');
+              form.reset();
+              if (charCount) charCount.textContent = '0';
+              
+              // Success button animation
+              submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+              submitBtn.style.background = 'linear-gradient(135deg, rgba(34, 197, 94, 0.8), rgba(34, 197, 94, 0.6))';
+              
+              setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.background = '';
+                submitBtn.disabled = false;
+              }, 3000);
+            } else {
+              throw new Error('Network response was not ok');
+            }
+          } catch (error) {
+            console.error('Error:', error);
+            showCleanFormMessage('error', 'Failed to send message. Please try again or contact us directly.');
+            
+            // Reset button
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+          }
+        });
+      }
+
+      // Helper function to show form messages
+      function showCleanFormMessage(type, text) {
+        const messageText = formMessage.querySelector('.clean-message-text');
+        messageText.textContent = text;
+        
+        // Remove existing classes
+        formMessage.classList.remove('success', 'error');
+        
+        // Add new class and show
+        formMessage.classList.add(type);
+        
+        // Auto-hide after 5 seconds
+        setTimeout(() => {
+          formMessage.classList.remove(type);
+        }, 5000);
+      }
+    });
+
+    // Page Load Animation
   </script>
 
   <!-- GitHub Handle Link -->
