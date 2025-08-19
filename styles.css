@@ -3744,6 +3744,11 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
     transition: all 0.3s ease;
 }
 
+/* Specific styling for Aavishkar Manthan card title */
+.aavishkar-manthan-card h3 {
+    font-family: 'Audiowide', cursive;
+}
+
 .about-card:hover h3 {
     transform: translateY(-2px);
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -4448,7 +4453,7 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
 
 .clean-textarea {
     resize: vertical;
-    min-height: 120px;
+    height: 85px;
 }
 
 .clean-character-count {
@@ -4742,7 +4747,7 @@ button, .cta-button, .know-more-btn, .navbar a { min-height: 44px; min-width: 44
 }
 
 .footer-title {
-    font-family: 'Inknut Antiqua', serif;
+    font-family: 'Audiowide', cursive;
     font-size: 1.5rem;
     font-weight: 600;
     color: white;
@@ -6044,7 +6049,7 @@ html body nav.navbar .navbar-links li a:hover {
 }
 
 .mobile-logo-text {
-  font-family: 'Inknut Antiqua', serif;
+  font-family: 'Audiowide', cursive;
   font-size: 1.4rem;
   font-weight: 900;
   color: #ffffff;
