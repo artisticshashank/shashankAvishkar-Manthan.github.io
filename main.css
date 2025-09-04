@@ -263,6 +263,9 @@ body {
   animation: spinRotate 1.5s linear infinite reverse;
 }
 
+.walkathon-reg-btn{
+  text-decoration: none;
+}
 .spinner-center {
   position: absolute;
   top: 50%;
